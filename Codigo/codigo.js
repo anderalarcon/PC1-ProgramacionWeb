@@ -169,3 +169,7 @@ console.log(mapaActual)
 console.log(obtenerResultado(mapaActual, mapaPrevio))
 // 
 console.log(obtenerMatrixDeMapa(mapaActual))
+
+$('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+  })

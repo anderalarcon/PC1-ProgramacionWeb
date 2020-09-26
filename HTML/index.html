@@ -12,6 +12,8 @@
     />
     <link rel="stylesheet" href="/CSS/main.css" />
   </head>
+
+  
   <body>
     <!-- Barra-->
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark sticky-top">
@@ -32,41 +34,16 @@
           <a class="nav-item nav-link" href="#"
             >Creadores <span class="sr-only">(current)</span></a
           >
-          <a class="nav-item nav-link" href="#">Instrucciones</a>
+          <a class="nav-item nav-link" href="#modal2" data-toggle="modal" data-target="#modal2">Instrucciones</a>
           <a class="nav-item nav-link" href="#">Acerca de</a>
         </div>
       </div>
     </nav>
 
+
     <div class="container">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex error
-        accusantium est nisi, vitae velit deleniti, suscipit obcaecati impedit
-        dolore odit vel nostrum architecto laborum, sint consequatur quo quod
-        atque cupiditate modi officia! Sapiente suscipit quasi fugit similique
-        laboriosam voluptatibus necessitatibus veritatis id ea distinctio ullam,
-        cumque voluptates rem amet perspiciatis explicabo quo labore? Iure
-        assumenda molestias a iste, quisquam incidunt vitae laborum repellendus
-        harum quasi doloremque omnis reprehenderit ad alias adipisci voluptates
-        deleniti sit delectus velit. Necessitatibus nihil cum voluptatum rem
-        velit laboriosam, optio nulla placeat. Aperiam, dolorem. Aut
-        reprehenderit tenetur temporibus laboriosam fuga iste, maiores minus
-        odio repudiandae accusantium, expedita obcaecati et aperiam fugiat
-        praesentium vel nesciunt consequatur. In quos consequatur ullam labore
-        molestiae iusto id, asperiores tempore voluptates, nihil laudantium
-        nemo. Eius aliquam quis iste neque tenetur iure numquam id velit eum
-        rerum repellat explicabo animi amet quaerat consequuntur dolores odio,
-        minima, voluptatum, suscipit blanditiis dolorem! Laboriosam sequi unde
-        placeat qui a mollitia reiciendis quae tempore, tempora sint quisquam,
-        vero deleniti et natus, in corrupti. Ad repudiandae sunt esse,
-        voluptatem tempora, ut minima, accusamus debitis vel enim temporibus
-        ducimus in expedita perferendis. Deserunt possimus ipsa quibusdam
-        explicabo inventore, magnam tempore delectus ab non laudantium eius quae
-        porro totam adipisci voluptatibus. Praesentium dolores omnis, atque
       
-      </p>
-
-
+    
 <!-- Ventana modal al abrir pagina-->
       <div
         class="modal fade bd-example-modal-lg"
@@ -83,6 +60,28 @@
         </div>
       </div>
 
+    </div>
+
+
+
+<!-- Ventana modal de instrucciones-->
+    <div id="modal2" class="modal  " tabindex="-1" >
+      <div class="modal-dialog modal-dialog-centered ">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Instrucciones</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>El terreno ha sido minado con explosivos por un ataque terrorista y hay un único sobreviviente. Tu misión es controlar al robot para que llegue al sobreviviente y lo pueda rescatar. El robot solamente puede soportar 3 explosiones, es decir, queda totalmente destruido en la 4ta detonación. Si ese fuere el caso, se podrá enviar un robot nuevo.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary " data-dismiss="modal">Entedido</button>          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Scripts de Bootstrap-->

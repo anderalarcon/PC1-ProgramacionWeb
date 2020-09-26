@@ -132,6 +132,22 @@ mapaMinas = `
 mapaActual = mapaInicial
 console.log(mapaActual)
 mapaPrevio = mapaActual
+
+
+mapaActual = mover("up", mapaActual, mapaMinas)
+console.log(mapaActual)
+console.log(obtenerResultado(mapaActual, mapaPrevio))
+mapaPrevio = mapaActual
+
+
+mapaActual = mover("up", mapaActual, mapaMinas)
+console.log(mapaActual)
+console.log(obtenerResultado(mapaActual, mapaPrevio))
+mapaPrevio = mapaActual
+mapaActual = mover("right", mapaActual, mapaMinas)
+console.log(mapaActual)
+console.log(obtenerResultado(mapaActual, mapaPrevio))
+mapaPrevio = mapaActual
 mapaActual = mover("up", mapaActual, mapaMinas)
 console.log(mapaActual)
 console.log(obtenerResultado(mapaActual, mapaPrevio))
@@ -144,14 +160,6 @@ mapaActual = mover("right", mapaActual, mapaMinas)
 console.log(mapaActual)
 console.log(obtenerResultado(mapaActual, mapaPrevio))
 mapaPrevio = mapaActual
-mapaActual = mover("up", mapaActual, mapaMinas)
-console.log(mapaActual)
-console.log(obtenerResultado(mapaActual, mapaPrevio))
-mapaPrevio = mapaActual
-mapaActual = mover("up", mapaActual, mapaMinas)
-console.log(mapaActual)
-console.log(obtenerResultado(mapaActual, mapaPrevio))
-mapaPrevio = mapaActual
 mapaActual = mover("right", mapaActual, mapaMinas)
 console.log(mapaActual)
 console.log(obtenerResultado(mapaActual, mapaPrevio))
@@ -163,13 +171,63 @@ mapaPrevio = mapaActual
 mapaActual = mover("right", mapaActual, mapaMinas)
 console.log(mapaActual)
 console.log(obtenerResultado(mapaActual, mapaPrevio))
-mapaPrevio = mapaActual
-mapaActual = mover("right", mapaActual, mapaMinas)
-console.log(mapaActual)
-console.log(obtenerResultado(mapaActual, mapaPrevio))
-// 
 console.log(obtenerMatrixDeMapa(mapaActual))
 
-$('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-  })
+
+////////////////////////////////////////////////////////////////////////// A partir de aca es nuestro
+
+var mapas=[`0000#0$$$00$0000$000+$000`];//falta crear más mapas preguntar al profe
+
+var mapaSeleccionado=null;
+LineasMapa=null;
+
+var GenerarLineas=function(mapa){
+    var auxiliar="";
+    for(var i of mapa){
+        if(i !=" "){
+            auxiliar+="_";
+        }else{
+            auxiliar+=" ";
+        }
+    }
+    return auxiliar;
+
+}
+
+var imprimir=function(lineas){
+    var a =document.getElementById("probando").innerHTML=lineas;//imprime las lineas del refran con espaciado y todo //__ __
+
+}
+
+/* var principal=function(evt){
+    var caracter = evt.key; //almacena las letras
+    console.log(caracter);
+} */
+
+
+var main=(function(){
+    $(function(){
+        $('#qwe').modal();//Muestra el modal al cargar la pagina
+    });
+
+    mapaSeleccionado=mapas[0];
+    LineasMapa=GenerarLineas(mapaSeleccionado);
+    imprimir(LineasMapa);
+    //principal();
+
+
+
+    /* 1.Eligir un mapa aleatorio
+       2.Ocultar el mapa
+       3.Botones arriba abajoa izquierda derecha
+	       3.1	Verificar que al apretar no haya mina
+	       3.2 Si no hay Avanza normal
+		      3.2.1 Si hay ganador mensaje ganaste
+	       3.3 Si hay mina  explosión contador aumenta
+		      3.3.1Verificar si perdió :Mostrar mesaje
+	   3.4 Ir mostrando en mapa */
+
+
+});
+
+window.addEventListener('load',main);

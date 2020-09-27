@@ -184,11 +184,7 @@ LineasMapa=null;
 var GenerarLineas=function(mapa){
     var auxiliar="";
     for(var i of mapa){
-        if(i !=" "){
-            auxiliar+="_";
-        }else{
-            auxiliar+=" ";
-        }
+        auxiliar+=i
     }
     return auxiliar;
 

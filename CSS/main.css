@@ -2,7 +2,22 @@
   
         font-size: 40pt;
         letter-spacing: 8px;
+}
 
-    
+#carrucel .carousel-inner  img{
+        max-height: 70vh;
+        object-fit: cover;
 
 }
+#footer {
+        background: linear-gradient(90deg,#1c3643,#273b47 25%,#1e5372);
+      }
+      
+      #footer a {
+        color: white;
+      }
+
+      
+      #footer a {
+        color: white;
+      }

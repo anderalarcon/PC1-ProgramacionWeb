@@ -2,14 +2,21 @@
   color: #97c93e !important;
 }
 
-
-
-
-
 #header img {
   width: 80px;
 }
-
+#prueba{
+  position: absolute;
+  color: rgb(184, 50, 50);
+  padding-left: 25%;
+  padding-top: 45%;
+}
+#prueba2{
+  position: absolute;
+  color: rgb(184, 50, 50);
+  padding-left: 30%;
+  padding-top: 50%;
+}
 #main .carousel-inner img {
   max-height: 70vh;
   object-fit: cover;
@@ -21,12 +28,12 @@
 }
 
 #carousel .overlay {
-  position: absolute;
+  position: absolute; /*Pone adelante*/
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5); /*Oscurece fondo */
   color: white;
 }
 
@@ -45,7 +52,7 @@
 }
 
 #footer {
-  background: linear-gradient(90deg,#1c3643,#273b47 25%,#1e5372);
+  background: linear-gradient(90deg, #1c3643, #273b47 25%, #1e5372);
 }
 
 #footer a {

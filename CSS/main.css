@@ -92,6 +92,17 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.titulo{
+  color:  rgb(181, 124, 43); 
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.subtitulo{
+  color:rgb(35, 219, 179);
+  text-align: center;
+}
+
 
 
 

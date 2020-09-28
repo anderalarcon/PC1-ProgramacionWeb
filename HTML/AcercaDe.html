@@ -1,62 +1,73 @@
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CAMPO MINADO</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/CSS/main.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CAMPO MINADO</title>
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+    crossorigin="anonymous"
+  />
+  <link href="../CSS/main.css" rel="stylesheet" type="text/css"/>
 </head>
 
 
 <body class = "container">
-    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark sticky-top">
-        <a class="navbar-brand" href="#">Universidad de Lima</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-          </div>
+
+  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark sticky-top">
+      <a class="navbar-brand" href="#">Universidad de Lima</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
         </div>
-      </nav>
-
-      <div class class="mx-auto" >
-          <h1>¡Equipo Dinamita!</h1>
       </div>
+    </nav>
 
-      <div class="row" >
-        <div class="col-6"><img  src="../Imagenes/escanor.png" alt="200px" class="img-thumbnail" width="100" height="100"/></div>
-        <div class=col-6><img  src="../Imagenes/patricio.png" alt="" width="100" height="100" /></div>
 
-      </div>
+<div class="text-center">
+  <h1 id="titulo_acerca_de">¡Equipo Dinamita!</h1>
+</div>
 
-      <div class = "row">
-            <div class="col-6">anderson Achata Alarcon</div>
-            <div class="col-6">Roger Vega Solis</div>
-      </div>
 
-      <div class = "row">
-            <div class="col-6">20 años</div>
-            <div class="col-6">20 años</div>
-      </div>
+<div class="row text-center justify-content-center">
+  <div class="card col-3">
+    <img class="card-img-top rounded" src="../Imagenes/escanor.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Anderson Achata Alarcón</h5>
+      <p class="card-text">20 años, estudiante de la Universidad de Lima de la carrera de Ingeniería de Sistemas</p>           
+    </div>
+  </div>
+      
+  <div class="card col-3">
+    <img class="card-img-top" src="../Imagenes/patricio.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Roger Vega Solis</h5>
+      <p class="card-text">20 años, estudiante de la Universidad de Lima de la carrera de Ingeniería de Sistemas</p>        
+    </div>
+  </div>
+</div>
 
-      <div class = "row col-3">
-            <button class="btn btn-primary btn-block">Volver al menu principal</button>         
-      </div>
-      <div class="rowl col-3"> 
-            <button class="btn btn-primary btn-block">Jugar</button>
-      </div>
+<div class = "row">
+  <div class="col-2.5 mx-auto">
+    <a class="btn btn-primary btn-block boton_acerca" href="Principal.html">Volver al menu principal</a>     
+  </div>
+</div>
+
+<div class = "row">
+  <div class="col-2.5 mx-auto">
+    <a class="btn btn-primary btn-block boton_acerca" href="Principal.html">Jugar</a>     
+  </div>
+</div>
+
 
 </body>

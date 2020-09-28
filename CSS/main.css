@@ -58,3 +58,12 @@
 #footer a {
   color: white;
 }
+
+.boton_acerca{
+  margin-top: 20px !important;
+}
+
+#titulo_acerca_de{
+  color:  rgb(181, 124, 43); 
+  font-family: Arial, Helvetica, sans-serif;
+}

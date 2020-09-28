@@ -59,6 +59,7 @@
   color: white;
 }
 
+<<<<<<< HEAD
 .qwe{
   color: white;
   font-size: 20px;
@@ -83,6 +84,8 @@
   margin: auto;
 }
 
+=======
+>>>>>>> 259d5ef9d6ceb4ce1d218c6a196d9143ad154d4c
 .boton_acerca{
   margin-top: 20px !important;
 }
@@ -90,4 +93,8 @@
 #titulo_acerca_de{
   color:  rgb(181, 124, 43); 
   font-family: Arial, Helvetica, sans-serif;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 259d5ef9d6ceb4ce1d218c6a196d9143ad154d4c

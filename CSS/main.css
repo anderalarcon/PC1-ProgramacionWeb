@@ -59,8 +59,7 @@
   color: white;
 }
 
-<<<<<<< HEAD
-.qwe{
+.ewq{
   color: white;
   font-size: 20px;
 }
@@ -84,8 +83,6 @@
   margin: auto;
 }
 
-=======
->>>>>>> 259d5ef9d6ceb4ce1d218c6a196d9143ad154d4c
 .boton_acerca{
   margin-top: 20px !important;
 }
@@ -93,8 +90,32 @@
 #titulo_acerca_de{
   color:  rgb(181, 124, 43); 
   font-family: Arial, Helvetica, sans-serif;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 259d5ef9d6ceb4ce1d218c6a196d9143ad154d4c
+
+
+
+
+table {
+  margin: auto; 
+  border: outset black 6px; 
+  background: black; 
+  }
+  td {
+  line-height: 0; 
+  width: 100px; height: 100px; 
+  background: black; 
+  text-align: center; 
+  vertical-align: middle; 
+
+  }
+  tr:nth-child(odd) td:nth-child(odd), 
+  tr:nth-child(even) td:nth-child(even) {
+  background:white; 
+  }
+
+
+
+  #tablero{
+    margin-top: 20%;
+  }
+ 

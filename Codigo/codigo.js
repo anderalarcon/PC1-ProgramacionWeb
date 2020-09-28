@@ -173,27 +173,6 @@ console.log(obtenerMatrixDeMapa(mapaActual));
 
 ////////////////////////////////////////////////////////////////////////// A partir de aca es nuestro
 
-var mapas = [`0000#0$$$00$0000$000+$000`]; //falta crear más mapas preguntar al profe
-
-var mapaSeleccionado = null;
-LineasMapa = null;
-
-var GenerarLineas = function (mapa) {
-  var auxiliar = "";
-  for (var i of mapa) {
-    auxiliar += i;
-  }
-  return auxiliar;
-};
-
-var imprimir = function (lineas) {
-  var a = (document.getElementById("probando").innerHTML = lineas); //imprime las lineas del refran con espaciado y todo //__ __
-};
-
-/* var principal=function(evt){
-    var caracter = evt.key; //almacena las letras
-    console.log(caracter);
-} */
 
 var tableroAcrear;
 
@@ -201,27 +180,27 @@ function tablero() {
   tableroAcrear = document.getElementById("tablero");
   for (i = 0; i < 5; i++) {
     var fila = tableroAcrear.insertRow();
-    fila.innerHTML=i;
     for (j = 0; j < 5; j++) {
-      fila.insertCell();
-      
+      var celda = fila.insertCell();
+      if(i==4 && j==0){
+        celda.innerHTML="ROBOT"
+      }
+      if(i==0 && j==4){
+        celda.innerHTML="META"
+      }
     }
+   
   }
 }
+
 
 var main = function () {
   $(function () {
     $("#qwe").modal(); //Muestra el modal al cargar la pagina
   });
+  
   tablero();
 
-  for(i=0;i<5;i++){
-      for(j=0;j<5;j++){
-          document.write(i)
-      }
-      document.write("<br>")
-
-  }
 };
 
 window.addEventListener("load", main);

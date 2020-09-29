@@ -174,7 +174,7 @@ console.log(obtenerMatrixDeMapa(mapaActual));
 ////////////////////////////////////////////////////////////////////////// A partir de aca es nuestro
 
 
-var tableroAcrear;
+/* var tableroAcrear;
 
 function tablero() {
   tableroAcrear = document.getElementById("tablero");
@@ -191,7 +191,7 @@ function tablero() {
     }
    
   }
-}
+} */
 
 
 var main = function () {
@@ -199,7 +199,7 @@ var main = function () {
     $("#qwe").modal(); //Muestra el modal al cargar la pagina
   });
   
-  tablero();
+ 
 
 };
 

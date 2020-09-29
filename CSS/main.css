@@ -103,7 +103,11 @@
   text-align: center;
 }
 
-
+.contador{
+  width: 75px;
+  height: 75px;
+  align-content: center;
+}
 
 
 table {

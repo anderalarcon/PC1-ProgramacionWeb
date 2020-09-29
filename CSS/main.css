@@ -106,7 +106,13 @@
 .contador{
   width: 75px;
   height: 75px;
-  align-content: center;
+}
+
+.imagen_perfil{
+  width: 150px;
+  height: 150px;
+  display:block;
+  margin:auto;  
 }
 
 

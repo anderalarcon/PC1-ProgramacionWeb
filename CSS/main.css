@@ -115,6 +115,11 @@
   margin:auto;  
 }
 
+.informacion{
+  font-weight:bold;
+  color: cornflowerblue;
+}
+
 
 table {
   margin: auto; 

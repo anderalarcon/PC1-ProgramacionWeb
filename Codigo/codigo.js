@@ -1,7 +1,8 @@
 var contador = 0;
 var contadorVidas = 4;
 var nivelAPasar = 1;
-//-------------------------------------------------------------------------------
+var estado_botones = 1; //1 es presente y 0 es oculto
+
 function mover(accion, mapaActual, mapaMinas) {
   acciones = ["up", "down", "left", "right"];
 
@@ -12,41 +13,27 @@ function mover(accion, mapaActual, mapaMinas) {
   if (mapaActual.indexOf(CARACTER_FIN) >= 0) {
     return "error: no se puede ejecutar más acciones";
   }
-
-
   matrixActual = mapaActual.trim().split("\n");
   matrixMinas = mapaMinas.trim().split("\n");
-
-
   if (matrixActual.length == 0) {
     return "error: mapa actual no puede ser vacío";
   }
   if (matrixMinas.length == 0) {
     return "error: mapa minas no puede ser vacío";
   }
-
-
   rowsActual = matrixActual.length;
   colsActual = matrixActual[0].length;
-
-
   for (i = 0; i < matrixActual.length; i++) {
     if (matrixActual[i].length != colsActual) {
       return "error: dimensiones incorrectas para mapa actual";
     }
     matrixActual[i] = matrixActual[i].split("");
   }
-
-
   rowsMinas = matrixMinas.length;
   colsMinas = matrixMinas[0].length;
-
-
   for (i = 0; i < matrixMinas.length; i++) {
     if (matrixMinas[i].length != colsMinas) {
-
       return "error: dimensiones incorrectas para mapa minas";
-
     }
   }
   if (rowsActual != rowsMinas || colsActual != colsMinas) {
@@ -110,8 +97,6 @@ function mover(accion, mapaActual, mapaMinas) {
   }
   return result.join("\n");
 }
-//-------------------------------------------------------------------------------
-
 function obtenerResultado(mapaActual, mapaPrevio) {
   if (mapaActual == mapaPrevio) {
     return "sin cambios";
@@ -122,7 +107,9 @@ function obtenerResultado(mapaActual, mapaPrevio) {
     var Mapa = document.getElementById("mapa");
     nivelActual.innerHTML = nivelAPasar;
     Mapa.innerHTML = nivelAPasar;
-    return "fin";
+    estado_botones = 0;
+    ocultar_botones();
+    return "fin, llegaste al objetivo :D";
   }
   minasActual = (mapaActual.match(/\$/g) || []).length;
   minasPrevio = (mapaPrevio.match(/\$/g) || []).length;
@@ -130,9 +117,13 @@ function obtenerResultado(mapaActual, mapaPrevio) {
     contador++;
     contadorVidas--;
     var a = document.getElementById("cantidad_vidas");
+    //console.log(contador);
     a.innerHTML = contadorVidas;
     if (contador > 3) {
-      return "FIN";
+      estado_botones = 0;
+      ocultar_botones();
+      console.log(estado_botones);
+      return "robot destruido";
     } else {
       return "mina";
     }
@@ -141,9 +132,6 @@ function obtenerResultado(mapaActual, mapaPrevio) {
     return "sin mina";
   }
 }
-
-//-------------------------------------------------------------------------------
-
 function obtenerMatrixDeMapa(mapa) {
   matrixMapa = mapa.trim().split("\n");
   for (i = 0; i < matrixMapa.length; i++) {
@@ -151,10 +139,7 @@ function obtenerMatrixDeMapa(mapa) {
   }
   return matrixMapa;
 }
-
-//-------------------------------------------------------------------------------
 //ejemplo
-
 mapaInicial = `
 0000#
 00000
@@ -171,66 +156,134 @@ mapaMinas = `
 `;
 
 ////////////////////////////////////////////////////////////////////////// A partir de aca es nuestro
+resultado = document.getElementById("resultado");
+cuadro =document.getElementById("cuadro1");
 
-var resultado=document.getElementById("resultado");
+var ocultar_botones = function(){
+  if(estado_botones == 0){
+    document.querySelector("#arriba").style.display = "none";
+    document.querySelector("#abajo").style.display = "none";
+    document.querySelector("#izquierda").style.display = "none";
+    document.querySelector("#derecha").style.display = "none";
+  }
+}
+
+var mostrar_botones = function(){
+  if(estado_botones == 1){
+    document.querySelector("#arriba").style.display = "block";
+    document.querySelector("#abajo").style.display = "block";
+    document.querySelector("#izquierda").style.display = "block";
+    document.querySelector("#derecha").style.display = "block";
+  }
+}
+
+var tecla_presionada = function(evt){
+  if(evt.keyCode == 37){botonIzquierdaPressed();}
+  else if(evt.keyCode == 38){botonArribaPressed();}
+  else if(evt.keyCode == 39){botonDerechaPressed();}
+  else {botonAbajoPressed();}
+}
+
 
 var arriba = function () {
   mapaActual = mover("up", mapaActual, mapaMinas); //usar estas funciones
   console.log(mapaActual);
-  console.log(obtenerResultado(mapaActual, mapaPrevio));
-  resultado.innerHTML=obtenerResultado(mapaActual, mapaPrevio)
+  resultado.innerHTML = 3;
+  resultado.innerHTML = obtenerResultado(mapaActual, mapaPrevio);
   mapaPrevio = mapaActual;
-};
+  estado_botones = 1;
+  mostrar_botones();
+  };
+
 
 var abajo = function () {
   mapaActual = mover("down", mapaActual, mapaMinas); //usar estas funciones
   console.log(mapaActual);
-  console.log(obtenerResultado(mapaActual, mapaPrevio));
-  resultado.innerHTML=obtenerResultado(mapaActual, mapaPrevio)
-
+  resultado.innerHTML = obtenerResultado(mapaActual, mapaPrevio);
   mapaPrevio = mapaActual;
+  estado_botones = 1;
+  mostrar_botones();
 };
 
 var izquierda = function () {
   mapaActual = mover("left", mapaActual, mapaMinas); //usar estas funciones
   console.log(mapaActual);
-  console.log(obtenerResultado(mapaActual, mapaPrevio));
-  resultado.innerHTML=obtenerResultado(mapaActual, mapaPrevio)
+  resultado.innerHTML = obtenerResultado(mapaActual, mapaPrevio);
   mapaPrevio = mapaActual;
+  estado_botones = 1;
+  mostrar_botones();
 };
 
 var derecha = function () {
   mapaActual = mover("right", mapaActual, mapaMinas); //usar estas funciones
   console.log(mapaActual);
-  console.log(obtenerResultado(mapaActual, mapaPrevio));
-  resultado.innerHTML=obtenerResultado(mapaActual, mapaPrevio)
+  resultado.innerHTML = obtenerResultado(mapaActual, mapaPrevio);
   mapaPrevio = mapaActual;
+  estado_botones = 1;
+  mostrar_botones();
 };
 
-var tecla_presionada = function(evt){
-  if(evt.keyCode == 37){izquierda();}
-  else if(evt.keyCode == 38){arriba();}
-  else if(evt.keyCode == 39){derecha();}
-  else {abajo();}
+/*var botonPressed = function(){
+  console.log("se presionos");
+ if(document.getElementById("a")) {arriba();}
+ else if(document.getElementById("abajo")) {abajo();}
+ else if(document.getElementById("arriba")) {arriba();}
+ 
+ 
+ //console.log("no entro la ");
+}*/
+
+var botonArribaPressed = function(){
+  estado_botones = 0;
+  ocultar_botones();
+  setTimeout(arriba,3000);
+  
 }
 
+var botonAbajoPressed = function(){
+  estado_botones = 0;
+  ocultar_botones();
+  setTimeout(abajo,3000);
+}
 
+var botonIzquierdaPressed = function(){
+  estado_botones = 0;
+  ocultar_botones();
+  setTimeout(izquierda,3000);
+}
+
+var botonDerechaPressed = function(){
+  estado_botones = 0;
+  ocultar_botones();
+  setTimeout(derecha,3000);
+}
 
 var main = function () {
   $(function () {
     $("#qwe").modal(); //Muestra el modal al cargar la pagina
   });
+  
   mapaActual = mapaInicial;
   console.log(mapaActual);
   mapaPrevio = mapaActual;
 
-  document.getElementById("arriba").addEventListener("click", arriba);
+  
+  document.getElementById("arriba").addEventListener("click",botonArribaPressed);
+  document.getElementById("derecha").addEventListener("click", botonDerechaPressed);
+  document.getElementById("izquierda").addEventListener("click", botonIzquierdaPressed);
+  document.getElementById("abajo").addEventListener("click", botonAbajoPressed);
+
+  /* POR SI QUEREMOS PRUEBAS, MÁS RÁPIDO
+  document.getElementById("arriba").addEventListener("click",arriba);
   document.getElementById("derecha").addEventListener("click", derecha);
   document.getElementById("izquierda").addEventListener("click", izquierda);
-  document.getElementById("abajo").addEventListener("click", abajo);
+  document.getElementById("abajo").addEventListener("click", abajo);*/
 
   document.addEventListener("keydown", tecla_presionada);
+  //document.addEventListener("click",botonPressed);
+};
 
+window.addEventListener("load", main);
 
 /*   a = `
   0000#<br>
@@ -241,9 +294,9 @@ var main = function () {
   `;
   
 document.write(a) */
-};
+//};
 
-window.addEventListener("load", main);
+//window.addEventListener("load", main);
 
 /* //ejemplo
 mapaInicial = `

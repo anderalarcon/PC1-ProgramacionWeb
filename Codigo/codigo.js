@@ -1,5 +1,7 @@
 function mover(accion, mapaActual, mapaMinas) {
+
   acciones = ["up", "down", "left", "right"];
+
   if (acciones.indexOf(accion) == -1) {
     return "error: accion no definida";
   }
@@ -129,6 +131,7 @@ mapaMinas = `
 0$000
 +$000
 `;
+
 mapaActual = mapaInicial;
 console.log(mapaActual);
 mapaPrevio = mapaActual;
@@ -173,31 +176,26 @@ console.log(obtenerMatrixDeMapa(mapaActual));
 
 ////////////////////////////////////////////////////////////////////////// A partir de aca es nuestro
 
+var mapa=function(){
+  console.log("asd");
+  document.write(`
+  0000#
+  0$$$0
+  0$000
+  0$000
+  +$000
+  `);
 
-/* var tableroAcrear;
-
-function tablero() {
-  tableroAcrear = document.getElementById("tablero");
-  for (i = 0; i < 5; i++) {
-    var fila = tableroAcrear.insertRow();
-    for (j = 0; j < 5; j++) {
-      var celda = fila.insertCell();
-      if(i==4 && j==0){
-        celda.innerHTML="ROBOT"
-      }
-      if(i==0 && j==4){
-        celda.innerHTML="META"
-      }
-    }
-   
-  }
-} */
+}
 
 
 var main = function () {
   $(function () {
     $("#qwe").modal(); //Muestra el modal al cargar la pagina
   });
+
+  document.getElementById("arriba").addEventListener("click",mapa);
+
   
  
 

@@ -1,7 +1,7 @@
 var contador = 0;
 var contadorVidas = 4;
 var nivelAPasar = 1;
-
+//-------------------------------------------------------------------------------
 function mover(accion, mapaActual, mapaMinas) {
   acciones = ["up", "down", "left", "right"];
 
@@ -12,27 +12,41 @@ function mover(accion, mapaActual, mapaMinas) {
   if (mapaActual.indexOf(CARACTER_FIN) >= 0) {
     return "error: no se puede ejecutar más acciones";
   }
+
+
   matrixActual = mapaActual.trim().split("\n");
   matrixMinas = mapaMinas.trim().split("\n");
+
+
   if (matrixActual.length == 0) {
     return "error: mapa actual no puede ser vacío";
   }
   if (matrixMinas.length == 0) {
     return "error: mapa minas no puede ser vacío";
   }
+
+
   rowsActual = matrixActual.length;
   colsActual = matrixActual[0].length;
+
+
   for (i = 0; i < matrixActual.length; i++) {
     if (matrixActual[i].length != colsActual) {
       return "error: dimensiones incorrectas para mapa actual";
     }
     matrixActual[i] = matrixActual[i].split("");
   }
+
+
   rowsMinas = matrixMinas.length;
   colsMinas = matrixMinas[0].length;
+
+
   for (i = 0; i < matrixMinas.length; i++) {
     if (matrixMinas[i].length != colsMinas) {
+
       return "error: dimensiones incorrectas para mapa minas";
+
     }
   }
   if (rowsActual != rowsMinas || colsActual != colsMinas) {
@@ -96,6 +110,8 @@ function mover(accion, mapaActual, mapaMinas) {
   }
   return result.join("\n");
 }
+//-------------------------------------------------------------------------------
+
 function obtenerResultado(mapaActual, mapaPrevio) {
   if (mapaActual == mapaPrevio) {
     return "sin cambios";
@@ -106,8 +122,6 @@ function obtenerResultado(mapaActual, mapaPrevio) {
     var Mapa = document.getElementById("mapa");
     nivelActual.innerHTML = nivelAPasar;
     Mapa.innerHTML = nivelAPasar;
-   
-
     return "fin";
   }
   minasActual = (mapaActual.match(/\$/g) || []).length;
@@ -127,6 +141,9 @@ function obtenerResultado(mapaActual, mapaPrevio) {
     return "sin mina";
   }
 }
+
+//-------------------------------------------------------------------------------
+
 function obtenerMatrixDeMapa(mapa) {
   matrixMapa = mapa.trim().split("\n");
   for (i = 0; i < matrixMapa.length; i++) {
@@ -134,7 +151,10 @@ function obtenerMatrixDeMapa(mapa) {
   }
   return matrixMapa;
 }
+
+//-------------------------------------------------------------------------------
 //ejemplo
+
 mapaInicial = `
 0000#
 00000
@@ -152,11 +172,13 @@ mapaMinas = `
 
 ////////////////////////////////////////////////////////////////////////// A partir de aca es nuestro
 
+var resultado=document.getElementById("resultado");
+
 var arriba = function () {
   mapaActual = mover("up", mapaActual, mapaMinas); //usar estas funciones
   console.log(mapaActual);
-  document.getElementById()
   console.log(obtenerResultado(mapaActual, mapaPrevio));
+  resultado.innerHTML=obtenerResultado(mapaActual, mapaPrevio)
   mapaPrevio = mapaActual;
 };
 
@@ -164,6 +186,8 @@ var abajo = function () {
   mapaActual = mover("down", mapaActual, mapaMinas); //usar estas funciones
   console.log(mapaActual);
   console.log(obtenerResultado(mapaActual, mapaPrevio));
+  resultado.innerHTML=obtenerResultado(mapaActual, mapaPrevio)
+
   mapaPrevio = mapaActual;
 };
 
@@ -171,6 +195,7 @@ var izquierda = function () {
   mapaActual = mover("left", mapaActual, mapaMinas); //usar estas funciones
   console.log(mapaActual);
   console.log(obtenerResultado(mapaActual, mapaPrevio));
+  resultado.innerHTML=obtenerResultado(mapaActual, mapaPrevio)
   mapaPrevio = mapaActual;
 };
 
@@ -178,8 +203,18 @@ var derecha = function () {
   mapaActual = mover("right", mapaActual, mapaMinas); //usar estas funciones
   console.log(mapaActual);
   console.log(obtenerResultado(mapaActual, mapaPrevio));
+  resultado.innerHTML=obtenerResultado(mapaActual, mapaPrevio)
   mapaPrevio = mapaActual;
 };
+
+var tecla_presionada = function(evt){
+  if(evt.keyCode == 37){izquierda();}
+  else if(evt.keyCode == 38){arriba();}
+  else if(evt.keyCode == 39){derecha();}
+  else {abajo();}
+}
+
+
 
 var main = function () {
   $(function () {
@@ -193,40 +228,76 @@ var main = function () {
   document.getElementById("derecha").addEventListener("click", derecha);
   document.getElementById("izquierda").addEventListener("click", izquierda);
   document.getElementById("abajo").addEventListener("click", abajo);
+
+  document.addEventListener("keydown", tecla_presionada);
+
+
+/*   a = `
+  0000#<br>
+  0$$$0<br>
+  0$000<br>
+  0$000<br>
+  +$000<br>
+  `;
+  
+document.write(a) */
 };
 
 window.addEventListener("load", main);
 
-/* mapaActual = mover("up", mapaActual, mapaMinas);
-console.log(mapaActual);
-console.log(obtenerResultado(mapaActual, mapaPrevio));
-mapaPrevio = mapaActual;
-mapaActual = mover("right", mapaActual, mapaMinas);
-console.log(mapaActual);
-console.log(obtenerResultado(mapaActual, mapaPrevio));
-mapaPrevio = mapaActual;
-mapaActual = mover("up", mapaActual, mapaMinas);
-console.log(mapaActual);
-console.log(obtenerResultado(mapaActual, mapaPrevio));
-mapaPrevio = mapaActual;
-mapaActual = mover("up", mapaActual, mapaMinas);
-console.log(mapaActual);
-console.log(obtenerResultado(mapaActual, mapaPrevio));
-mapaPrevio = mapaActual;
-mapaActual = mover("right", mapaActual, mapaMinas);
-console.log(mapaActual);
-console.log(obtenerResultado(mapaActual, mapaPrevio));
-mapaPrevio = mapaActual;
-mapaActual = mover("right", mapaActual, mapaMinas);
-console.log(mapaActual);
-console.log(obtenerResultado(mapaActual, mapaPrevio));
-mapaPrevio = mapaActual;
-mapaActual = mover("right", mapaActual, mapaMinas);
-console.log(mapaActual);
-console.log(obtenerResultado(mapaActual, mapaPrevio));
-mapaPrevio = mapaActual;
-mapaActual = mover("right", mapaActual, mapaMinas);
-console.log(mapaActual);
-console.log(obtenerResultado(mapaActual, mapaPrevio));
-console.log(obtenerMatrixDeMapa(mapaActual));
- */
+/* //ejemplo
+mapaInicial = `
+0000#
+00000
+00000
+00000
++0000
+`
+mapaMinas = `
+0000#
+0$$$0
+0$000
+0$000
++$000
+` */
+
+/* mapaActual = mapaInicial
+console.log(mapaActual)
+mapaPrevio = mapaActual
+mapaActual = mover("up", mapaActual, mapaMinas)
+console.log(mapaActual)
+console.log(obtenerResultado(mapaActual, mapaPrevio))
+mapaPrevio = mapaActual
+mapaActual = mover("up", mapaActual, mapaMinas)
+console.log(mapaActual)
+console.log(obtenerResultado(mapaActual, mapaPrevio))
+mapaPrevio = mapaActual
+mapaActual = mover("right", mapaActual, mapaMinas)
+console.log(mapaActual)
+console.log(obtenerResultado(mapaActual, mapaPrevio))
+mapaPrevio = mapaActual
+mapaActual = mover("up", mapaActual, mapaMinas)
+console.log(mapaActual)
+console.log(obtenerResultado(mapaActual, mapaPrevio))
+mapaPrevio = mapaActual
+mapaActual = mover("up", mapaActual, mapaMinas)
+console.log(mapaActual)
+console.log(obtenerResultado(mapaActual, mapaPrevio))
+mapaPrevio = mapaActual
+mapaActual = mover("right", mapaActual, mapaMinas)
+console.log(mapaActual)
+console.log(obtenerResultado(mapaActual, mapaPrevio))
+mapaPrevio = mapaActual
+mapaActual = mover("right", mapaActual, mapaMinas)
+console.log(mapaActual)
+console.log(obtenerResultado(mapaActual, mapaPrevio))
+mapaPrevio = mapaActual
+mapaActual = mover("right", mapaActual, mapaMinas)
+console.log(mapaActual)
+console.log(obtenerResultado(mapaActual, mapaPrevio))
+mapaPrevio = mapaActual
+mapaActual = mover("right", mapaActual, mapaMinas)
+console.log(mapaActual)
+console.log(obtenerResultado(mapaActual, mapaPrevio))
+
+console.log(obtenerMatrixDeMapa(mapaActual)) */

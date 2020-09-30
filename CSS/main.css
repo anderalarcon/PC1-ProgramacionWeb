@@ -139,4 +139,13 @@ table {
   #tablero{
     margin-top: 20%;
   }
+  .oculto{
+    display: none;
+  }
+
+  .visible{
+    display: none;
+  }
+
+  
  

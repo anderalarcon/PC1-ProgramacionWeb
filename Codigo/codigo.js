@@ -1,5 +1,8 @@
-function mover(accion, mapaActual, mapaMinas) {
+var contador = 0;
+var contadorVidas = 4;
+var nivelAPasar = 1;
 
+function mover(accion, mapaActual, mapaMinas) {
   acciones = ["up", "down", "left", "right"];
 
   if (acciones.indexOf(accion) == -1) {
@@ -98,12 +101,27 @@ function obtenerResultado(mapaActual, mapaPrevio) {
     return "sin cambios";
   }
   if ((mapaActual.match(/@/g) || []).length) {
+    nivelAPasar++;
+    var nivelActual = document.getElementById("nivel");
+    var Mapa = document.getElementById("mapa");
+    nivelActual.innerHTML = nivelAPasar;
+    Mapa.innerHTML = nivelAPasar;
+   
+
     return "fin";
   }
   minasActual = (mapaActual.match(/\$/g) || []).length;
   minasPrevio = (mapaPrevio.match(/\$/g) || []).length;
   if (minasActual > minasPrevio) {
-    return "mina";
+    contador++;
+    contadorVidas--;
+    var a = document.getElementById("cantidad_vidas");
+    a.innerHTML = contadorVidas;
+    if (contador > 3) {
+      return "FIN";
+    } else {
+      return "mina";
+    }
   }
   if (minasActual == minasPrevio) {
     return "sin mina";
@@ -132,16 +150,54 @@ mapaMinas = `
 +$000
 `;
 
-mapaActual = mapaInicial;
-console.log(mapaActual);
-mapaPrevio = mapaActual;
+////////////////////////////////////////////////////////////////////////// A partir de aca es nuestro
 
-mapaActual = mover("up", mapaActual, mapaMinas);
-console.log(mapaActual);
-console.log(obtenerResultado(mapaActual, mapaPrevio));
-mapaPrevio = mapaActual;
+var arriba = function () {
+  mapaActual = mover("up", mapaActual, mapaMinas); //usar estas funciones
+  console.log(mapaActual);
+  document.getElementById()
+  console.log(obtenerResultado(mapaActual, mapaPrevio));
+  mapaPrevio = mapaActual;
+};
 
-mapaActual = mover("up", mapaActual, mapaMinas);
+var abajo = function () {
+  mapaActual = mover("down", mapaActual, mapaMinas); //usar estas funciones
+  console.log(mapaActual);
+  console.log(obtenerResultado(mapaActual, mapaPrevio));
+  mapaPrevio = mapaActual;
+};
+
+var izquierda = function () {
+  mapaActual = mover("left", mapaActual, mapaMinas); //usar estas funciones
+  console.log(mapaActual);
+  console.log(obtenerResultado(mapaActual, mapaPrevio));
+  mapaPrevio = mapaActual;
+};
+
+var derecha = function () {
+  mapaActual = mover("right", mapaActual, mapaMinas); //usar estas funciones
+  console.log(mapaActual);
+  console.log(obtenerResultado(mapaActual, mapaPrevio));
+  mapaPrevio = mapaActual;
+};
+
+var main = function () {
+  $(function () {
+    $("#qwe").modal(); //Muestra el modal al cargar la pagina
+  });
+  mapaActual = mapaInicial;
+  console.log(mapaActual);
+  mapaPrevio = mapaActual;
+
+  document.getElementById("arriba").addEventListener("click", arriba);
+  document.getElementById("derecha").addEventListener("click", derecha);
+  document.getElementById("izquierda").addEventListener("click", izquierda);
+  document.getElementById("abajo").addEventListener("click", abajo);
+};
+
+window.addEventListener("load", main);
+
+/* mapaActual = mover("up", mapaActual, mapaMinas);
 console.log(mapaActual);
 console.log(obtenerResultado(mapaActual, mapaPrevio));
 mapaPrevio = mapaActual;
@@ -173,32 +229,4 @@ mapaActual = mover("right", mapaActual, mapaMinas);
 console.log(mapaActual);
 console.log(obtenerResultado(mapaActual, mapaPrevio));
 console.log(obtenerMatrixDeMapa(mapaActual));
-
-////////////////////////////////////////////////////////////////////////// A partir de aca es nuestro
-
-var mapa=function(){
-  console.log("asd");
-  document.write(`
-  0000#
-  0$$$0
-  0$000
-  0$000
-  +$000
-  `);
-
-}
-
-
-var main = function () {
-  $(function () {
-    $("#qwe").modal(); //Muestra el modal al cargar la pagina
-  });
-
-  document.getElementById("arriba").addEventListener("click",mapa);
-
-  
- 
-
-};
-
-window.addEventListener("load", main);
+ */

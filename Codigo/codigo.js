@@ -117,12 +117,10 @@ function obtenerResultado(mapaActual, mapaPrevio) {
     contador++;
     contadorVidas--;
     var a = document.getElementById("cantidad_vidas");
-    //console.log(contador);
     a.innerHTML = contadorVidas;
     if (contador > 3) {
-      estado_botones = 0;
-      ocultar_botones();
-      console.log(estado_botones);
+      mostrarImagenalPerder();
+      console.log("asdsaddas");
       return "robot destruido";
     } else {
       return "mina";
@@ -157,146 +155,212 @@ mapaMinas = `
 
 ////////////////////////////////////////////////////////////////////////// A partir de aca es nuestro
 resultado = document.getElementById("resultado");
-cuadro =document.getElementById("cuadro1");
+cuadro = document.getElementById("cuadro1");
 
-var ocultar_botones = function(){
-  if(estado_botones == 0){
+var ocultar_botones = function () {
+  if (estado_botones == 0) {
     document.querySelector("#arriba").style.display = "none";
     document.querySelector("#abajo").style.display = "none";
     document.querySelector("#izquierda").style.display = "none";
     document.querySelector("#derecha").style.display = "none";
   }
-}
+};
 
-var mostrar_botones = function(){
-  if(estado_botones == 1){
+var mostrar_botones = function () {
+  if (estado_botones == 1) {
     document.querySelector("#arriba").style.display = "block";
     document.querySelector("#abajo").style.display = "block";
     document.querySelector("#izquierda").style.display = "block";
     document.querySelector("#derecha").style.display = "block";
   }
-}
+};
 
-var tecla_presionada = function(evt){
-  if(evt.keyCode == 37){botonIzquierdaPressed();}
-  else if(evt.keyCode == 38){botonArribaPressed();}
-  else if(evt.keyCode == 39){botonDerechaPressed();}
-  else {botonAbajoPressed();}
-}
-
+var tecla_presionada = function (evt) {
+  if (evt.keyCode == 37) {
+    botonIzquierdaPressed();
+  } else if (evt.keyCode == 38) {
+    botonArribaPressed();
+  } else if (evt.keyCode == 39) {
+    botonDerechaPressed();
+  } else {
+    botonAbajoPressed();
+  }
+};
 
 var arriba = function () {
   mapaActual = mover("up", mapaActual, mapaMinas); //usar estas funciones
   console.log(mapaActual);
+  matrix = obtenerMatrixDeMapa(mapaActual);
+  pintar_grafico(matrix);
   resultado.innerHTML = 3;
+  estado_botones = 1;
   resultado.innerHTML = obtenerResultado(mapaActual, mapaPrevio);
   mapaPrevio = mapaActual;
-  estado_botones = 1;
-  mostrar_botones();
-  };
-
+  if (contador > 3) {
+    estado_botones = 0;
+    ocultar_botones();
+  } else {
+    mostrar_botones();
+  }
+};
 
 var abajo = function () {
   mapaActual = mover("down", mapaActual, mapaMinas); //usar estas funciones
   console.log(mapaActual);
+  matrix = obtenerMatrixDeMapa(mapaActual);
+  pintar_grafico(matrix);
+  estado_botones = 1;
   resultado.innerHTML = obtenerResultado(mapaActual, mapaPrevio);
   mapaPrevio = mapaActual;
-  estado_botones = 1;
-  mostrar_botones();
+  if (contador > 3) {
+    estado_botones = 0;
+    ocultar_botones();
+  } else {
+    mostrar_botones();
+  }
 };
 
 var izquierda = function () {
   mapaActual = mover("left", mapaActual, mapaMinas); //usar estas funciones
   console.log(mapaActual);
+  matrix = obtenerMatrixDeMapa(mapaActual);
+  pintar_grafico(matrix);
+  estado_botones = 1;
   resultado.innerHTML = obtenerResultado(mapaActual, mapaPrevio);
   mapaPrevio = mapaActual;
-  estado_botones = 1;
-  mostrar_botones();
+  if (contador > 3) {
+    estado_botones = 0;
+    ocultar_botones();
+  } else {
+    mostrar_botones();
+  }
 };
 
 var derecha = function () {
   mapaActual = mover("right", mapaActual, mapaMinas); //usar estas funciones
   console.log(mapaActual);
+  matrix = obtenerMatrixDeMapa(mapaActual);
+  pintar_grafico(matrix);
+  estado_botones = 1;
   resultado.innerHTML = obtenerResultado(mapaActual, mapaPrevio);
   mapaPrevio = mapaActual;
-  estado_botones = 1;
-  mostrar_botones();
+  if (contador > 3) {
+    estado_botones = 0;
+    ocultar_botones();
+  } else {
+    mostrar_botones();
+  }
 };
 
-/*var botonPressed = function(){
-  console.log("se presionos");
- if(document.getElementById("a")) {arriba();}
- else if(document.getElementById("abajo")) {abajo();}
- else if(document.getElementById("arriba")) {arriba();}
+var botonArribaPressed = function () {
+  estado_botones = 0;
+  ocultar_botones();
+  setTimeout(arriba, 3000);
+};
+
+var botonAbajoPressed = function () {
+  estado_botones = 0;
+  ocultar_botones();
+  setTimeout(abajo, 3000);
+};
+
+var botonIzquierdaPressed = function () {
+  estado_botones = 0;
+  ocultar_botones();
+  setTimeout(izquierda, 3000);
+};
+
+var botonDerechaPressed = function () {
+  estado_botones = 0;
+  ocultar_botones();
+  setTimeout(derecha, 3000);
+};
+
+var pintar_grafico=function(matrix){
+  document.getElementById("cuadro4_0").innerHTML = matrixActual[4][0];
+  document.getElementById("cuadro4_1").innerHTML = matrixActual[4][1];
+  document.getElementById("cuadro4_2").innerHTML = matrixActual[4][2];
+  document.getElementById("cuadro4_3").innerHTML = matrixActual[4][3];
+  document.getElementById("cuadro4_4").innerHTML = matrixActual[4][4];
+  document.getElementById("cuadro3_0").innerHTML = matrixActual[3][0];
+  document.getElementById("cuadro3_1").innerHTML = matrixActual[3][1];
+  document.getElementById("cuadro3_2").innerHTML = matrixActual[3][2];
+  document.getElementById("cuadro3_3").innerHTML = matrixActual[3][3];
+  document.getElementById("cuadro3_4").innerHTML = matrixActual[3][4];
+  document.getElementById("cuadro2_0").innerHTML = matrixActual[2][0];
+  document.getElementById("cuadro2_1").innerHTML = matrixActual[2][1];
+  document.getElementById("cuadro2_2").innerHTML = matrixActual[2][2];
+  document.getElementById("cuadro2_3").innerHTML = matrixActual[2][3];
+  document.getElementById("cuadro2_4").innerHTML = matrixActual[2][4];
+  document.getElementById("cuadro1_0").innerHTML = matrixActual[1][0];
+  document.getElementById("cuadro1_1").innerHTML = matrixActual[1][1];
+  document.getElementById("cuadro1_2").innerHTML = matrixActual[1][2];
+  document.getElementById("cuadro1_3").innerHTML = matrixActual[1][3];
+  document.getElementById("cuadro1_4").innerHTML = matrixActual[1][4];
+  document.getElementById("cuadro0_0").innerHTML = matrixActual[0][0];
+  document.getElementById("cuadro0_1").innerHTML = matrixActual[0][1];
+  document.getElementById("cuadro0_2").innerHTML = matrixActual[0][2];
+  document.getElementById("cuadro0_3").innerHTML = matrixActual[0][3];
+  document.getElementById("cuadro0_4").innerHTML = matrixActual[0][4];
+}
+
+
+
+
+var mostrarImagenalPerder = function () {
+  $("#perder").modal({ backdrop: "static", keyboard: false }); //bloquea la pagina
+  $("#perder").modal("show"); // abrir
+};
+
+//faltaria temporizador,reiniciar y componente flecha
+
+
+
+/* 
+var funcion=function() {
  
- 
- //console.log("no entro la ");
-}*/
-
-var botonArribaPressed = function(){
-  estado_botones = 0;
-  ocultar_botones();
-  setTimeout(arriba,3000);
-  
+  if (time == -1) {
+    cuentaregre.style.display = "none";
+    return;
+  } else {
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    cuentaregre.innerHTML = `${minutes}:${seconds}`;
+    time--;
+  }
 }
-
-var botonAbajoPressed = function(){
-  estado_botones = 0;
-  ocultar_botones();
-  setTimeout(abajo,3000);
-}
-
-var botonIzquierdaPressed = function(){
-  estado_botones = 0;
-  ocultar_botones();
-  setTimeout(izquierda,3000);
-}
-
-var botonDerechaPressed = function(){
-  estado_botones = 0;
-  ocultar_botones();
-  setTimeout(derecha,3000);
-}
+var empieza = 0.05;
+var time = empieza * 60;
+var cuentaregre = document.getElementById("countdown");
+setInterval(funcion, 1000); */
 
 var main = function () {
+
   $(function () {
     $("#qwe").modal(); //Muestra el modal al cargar la pagina
   });
-  
   mapaActual = mapaInicial;
   console.log(mapaActual);
   mapaPrevio = mapaActual;
+  matrixActual = obtenerMatrixDeMapa(mapaActual);
+  matrixMinas = obtenerMatrixDeMapa(mapaMinas);
 
-  
-  document.getElementById("arriba").addEventListener("click",botonArribaPressed);
+  /*  document.getElementById("arriba").addEventListener("click",botonArribaPressed);
   document.getElementById("derecha").addEventListener("click", botonDerechaPressed);
   document.getElementById("izquierda").addEventListener("click", botonIzquierdaPressed);
-  document.getElementById("abajo").addEventListener("click", botonAbajoPressed);
+  document.getElementById("abajo").addEventListener("click", botonAbajoPressed); */
 
-  /* POR SI QUEREMOS PRUEBAS, MÁS RÁPIDO
-  document.getElementById("arriba").addEventListener("click",arriba);
+  document.getElementById("arriba").addEventListener("click", arriba);
+
   document.getElementById("derecha").addEventListener("click", derecha);
   document.getElementById("izquierda").addEventListener("click", izquierda);
-  document.getElementById("abajo").addEventListener("click", abajo);*/
+  document.getElementById("abajo").addEventListener("click", abajo);
 
   document.addEventListener("keydown", tecla_presionada);
-  //document.addEventListener("click",botonPressed);
+  pintar_grafico(matrixActual);
 };
 
 window.addEventListener("load", main);
-
-/*   a = `
-  0000#<br>
-  0$$$0<br>
-  0$000<br>
-  0$000<br>
-  +$000<br>
-  `;
-  
-document.write(a) */
-//};
-
-//window.addEventListener("load", main);
 
 /* //ejemplo
 mapaInicial = `

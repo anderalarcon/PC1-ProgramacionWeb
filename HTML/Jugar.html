@@ -49,7 +49,7 @@
 
       <h1 class="titulo ">CAMPO MINADO</h1>
 
-      <div class="container px-lg-5 ">
+      <div class="container px-lg-5">
         <div class="row mx-lg-n1"> 
           <div class="col-4 py-4 px-lg-5 subtitulo">INFORMACIÓN</div>
 
@@ -74,6 +74,7 @@
           <div class="col-1 py-4 px-lg-5 border bg-light"><span id="cuadro2_2"></span></div>
           <div class="col-1 py-4 px-lg-5 border bg-light"><span id="cuadro2_3"></span></div>
           <div class="col-1 py-4 px-lg-5 border bg-light"><span id="cuadro2_4"></span></div>
+          <div class="col-2 py-4 px-lg-5"><span >aqui va contador??</span></div>
         </div>
         <div  class="row mx-lg-n1">
           <div class="col-4 py-4 px-lg-5">Mapa Actual: <span class="informacion" id="mapa">1ero</span></div>
@@ -84,8 +85,8 @@
           <div class="col-1 py-4 px-lg-5 border bg-light"><span id="cuadro3_4"></span></div>
         </div>
         <div  class="row mx-lg-n1">
-          <div class="col-2 py-4 px-lg-5">Resultado:<span class="informacion"  id="resultado"></span>  </div>
-          <div class="col-2 py-4 px-lg-5"> aqui va contador??</div>
+          <div class="col-4 py-4 px-lg-5">Resultado:<span class="informacion"  id="resultado"></span>  </div>
+
           <div class="col-1 py-4 px-lg-5 border bg-light"><span id="cuadro4_0"></span></div>
           <div class="col-1 py-4 px-lg-5 border bg-light"><span id="cuadro4_1"></span></div>
           <div class="col-1 py-4 px-lg-5 border bg-light"><span id="cuadro4_2"></span></div>
@@ -137,6 +138,39 @@
     </div>
   </div>
  
+    <!-- Ventana modal de instrucciones-->
+    <div id="modal2" class="modal fade  " tabindex="-1" >
+      <div class="modal-dialog modal-dialog-centered ">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Instrucciones</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              -Tienes que rescatar a un compañero de guerra controlando al robot.
+            </p>
+            <p>
+              -A lo largo del tramo te toparas con diversas minas ,trata de no pisarlas !.
+            </p>
+            <p>
+              -Tu robot solo soporta 3 detonaciones , es decir al 4to error pierdes.
+            </p>
+            <p>
+              -Puedes empezar un nuevo juego al perder.
+            </p>
+            <p id="suerte">
+              Suerte!
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary " data-dismiss="modal">Entendido</button>          </div>
+        </div>
+      </div>
+    </div>
+        <!-- Ventana modal de instrucciones-->
 
 </body>
 

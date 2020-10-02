@@ -108,7 +108,7 @@ function obtenerResultado(mapaActual, mapaPrevio) {
     nivelActual.innerHTML = nivelAPasar;
     Mapa.innerHTML = nivelAPasar;
     estado_botones = 0;
-    ocultar_botones();
+    Estado_botones();
     return "fin, llegaste al objetivo :D";
   }
   minasActual = (mapaActual.match(/\$/g) || []).length;
@@ -157,23 +157,39 @@ mapaMinas = `
 resultado = document.getElementById("resultado");
 cuadro = document.getElementById("cuadro1");
 
-var ocultar_botones = function () {
+var Estado_botones = function () {
   if (estado_botones == 0) {
     document.querySelector("#arriba").style.display = "none";
     document.querySelector("#abajo").style.display = "none";
     document.querySelector("#izquierda").style.display = "none";
     document.querySelector("#derecha").style.display = "none";
-  }
-};
+    
+    /*
+    =======NO BORRES LO COMENTADO ES PA PREGUNTAR AL PROFE===============
+    document.querySelector("#nivel").style.display = "none";
+    document.querySelector("#cantidad_vidas").style.display = "none";
+    document.querySelector("#mapa").style.display = "none";
+    document.querySelector("#resultado").style.display = "none";*/
 
-var mostrar_botones = function () {
-  if (estado_botones == 1) {
+  }else{
+    /*document.querySelector("#arriba").setAttribute("class","btn btn-primary");
+    document.getElementById("nivel").setAttribute("class","col-4 py-4 px-lg-5");*/
+
     document.querySelector("#arriba").style.display = "block";
     document.querySelector("#abajo").style.display = "block";
     document.querySelector("#izquierda").style.display = "block";
     document.querySelector("#derecha").style.display = "block";
+  /*  document.querySelector("#nivel").style.display = "block";
+    document.querySelector("#cantidad_vidas").style.display = "block";
+    document.querySelector("#mapa").style.display = "block";
+    document.querySelector("#resultado").style.display = "block";*/
+
+   
+    
   }
 };
+
+var flecha_movimiento;
 
 var tecla_presionada = function (evt) {
   if (evt.keyCode == 37) {
@@ -198,9 +214,9 @@ var arriba = function () {
   mapaPrevio = mapaActual;
   if (contador > 3) {
     estado_botones = 0;
-    ocultar_botones();
+    Estado_botones();
   } else {
-    mostrar_botones();
+    Estado_botones();
   }
 };
 
@@ -214,9 +230,9 @@ var abajo = function () {
   mapaPrevio = mapaActual;
   if (contador > 3) {
     estado_botones = 0;
-    ocultar_botones();
+    Estado_botones();
   } else {
-    mostrar_botones();
+    Estado_botones();
   }
 };
 
@@ -230,9 +246,9 @@ var izquierda = function () {
   mapaPrevio = mapaActual;
   if (contador > 3) {
     estado_botones = 0;
-    ocultar_botones();
+    Estado_botones();
   } else {
-    mostrar_botones();
+    Estado_botones();
   }
 };
 
@@ -246,62 +262,74 @@ var derecha = function () {
   mapaPrevio = mapaActual;
   if (contador > 3) {
     estado_botones = 0;
-    ocultar_botones();
+    Estado_botones();
   } else {
-    mostrar_botones();
+    Estado_botones();
   }
 };
 
 var botonArribaPressed = function () {
   estado_botones = 0;
-  ocultar_botones();
+  Estado_botones();
+  matriz=obtenerMatrixDeMapa(mapaActual);
+  for(var i= 0; i<5;i++){
+    for(var j=0;j<5;j++){
+      if(matriz[j][i]=="+"){
+        document.getElementById("cuadro"+j+"_"+i).innerHTML = "↑";
+      }
+    }
+  }
   setTimeout(arriba, 3000);
 };
 
 var botonAbajoPressed = function () {
   estado_botones = 0;
-  ocultar_botones();
+  Estado_botones();
+  matriz=obtenerMatrixDeMapa(mapaActual);
+  for(var i= 0; i<5;i++){
+    for(var j=0;j<5;j++){
+      if(matriz[j][i]=="+"){
+        document.getElementById("cuadro"+j+"_"+i).innerHTML = "↓";
+      }
+    }
+  }
   setTimeout(abajo, 3000);
 };
 
 var botonIzquierdaPressed = function () {
   estado_botones = 0;
-  ocultar_botones();
+  Estado_botones();
+  matriz=obtenerMatrixDeMapa(mapaActual);
+  for(var i= 0; i<5;i++){
+    for(var j=0;j<5;j++){
+      if(matriz[j][i]=="+"){
+        document.getElementById("cuadro"+j+"_"+i).innerHTML = "←";
+      }
+    }
+  }
   setTimeout(izquierda, 3000);
 };
 
 var botonDerechaPressed = function () {
   estado_botones = 0;
-  ocultar_botones();
+  Estado_botones();
+  matriz=obtenerMatrixDeMapa(mapaActual);
+  for(var i= 0; i<matriz.length;i++){
+    for(var j=0;j<matriz[i].length;j++){
+      if(matriz[j][i]=="+"){
+        document.getElementById("cuadro"+j+"_"+i).innerHTML = "→";
+      }
+    }
+  }
   setTimeout(derecha, 3000);
 };
 
 var pintar_grafico=function(matrix){
-  document.getElementById("cuadro4_0").innerHTML = matrixActual[4][0];
-  document.getElementById("cuadro4_1").innerHTML = matrixActual[4][1];
-  document.getElementById("cuadro4_2").innerHTML = matrixActual[4][2];
-  document.getElementById("cuadro4_3").innerHTML = matrixActual[4][3];
-  document.getElementById("cuadro4_4").innerHTML = matrixActual[4][4];
-  document.getElementById("cuadro3_0").innerHTML = matrixActual[3][0];
-  document.getElementById("cuadro3_1").innerHTML = matrixActual[3][1];
-  document.getElementById("cuadro3_2").innerHTML = matrixActual[3][2];
-  document.getElementById("cuadro3_3").innerHTML = matrixActual[3][3];
-  document.getElementById("cuadro3_4").innerHTML = matrixActual[3][4];
-  document.getElementById("cuadro2_0").innerHTML = matrixActual[2][0];
-  document.getElementById("cuadro2_1").innerHTML = matrixActual[2][1];
-  document.getElementById("cuadro2_2").innerHTML = matrixActual[2][2];
-  document.getElementById("cuadro2_3").innerHTML = matrixActual[2][3];
-  document.getElementById("cuadro2_4").innerHTML = matrixActual[2][4];
-  document.getElementById("cuadro1_0").innerHTML = matrixActual[1][0];
-  document.getElementById("cuadro1_1").innerHTML = matrixActual[1][1];
-  document.getElementById("cuadro1_2").innerHTML = matrixActual[1][2];
-  document.getElementById("cuadro1_3").innerHTML = matrixActual[1][3];
-  document.getElementById("cuadro1_4").innerHTML = matrixActual[1][4];
-  document.getElementById("cuadro0_0").innerHTML = matrixActual[0][0];
-  document.getElementById("cuadro0_1").innerHTML = matrixActual[0][1];
-  document.getElementById("cuadro0_2").innerHTML = matrixActual[0][2];
-  document.getElementById("cuadro0_3").innerHTML = matrixActual[0][3];
-  document.getElementById("cuadro0_4").innerHTML = matrixActual[0][4];
+  for(var i= 0; i<matrix.length;i++){
+    for(var j=0;j<matrix[i].length;j++){
+        document.getElementById("cuadro"+j+"_"+i).innerHTML = matrix[j][i];     
+    }
+  }
 }
 
 

@@ -10,6 +10,10 @@
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
     crossorigin="anonymous"
   />
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  
+
+
   <link href="../CSS/main.css" rel="stylesheet" type="text/css"/>
 </head>
 
@@ -18,8 +22,8 @@
     <!-- Header -->
     <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div class="container">
-          <img src="../Imagenes/logojuego.png" alt="">
-        <a class="navbar-brand" href="#">Campo Minado</a>
+        <lottie-player src="https://assets1.lottiefiles.com/temp/lf20_At0drg.json"  background="transparent"  speed="1"  style="width: 100px; height: 100px;"  loop  autoplay></lottie-player>
+        <a class="navba r-brand" href="Principal.html">Campo Minado</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -40,13 +44,13 @@
       </div>
     </nav>
     <!-- /Header -->
-
+  
 
     <div class="container">
       <div id="probando">
 
       </div>
-
+     
       <h1 class="titulo ">CAMPO MINADO</h1>
 
       <div class="container px-lg-5">
@@ -74,7 +78,7 @@
           <div class="col-1 py-4 px-lg-5 border bg-light"><span id="cuadro2_2"></span></div>
           <div class="col-1 py-4 px-lg-5 border bg-light"><span id="cuadro2_3"></span></div>
           <div class="col-1 py-4 px-lg-5 border bg-light"><span id="cuadro2_4"></span></div>
-          <div class="col-2 py-4 px-lg-5"><span >aqui va contador??</span></div>
+          
         </div>
         <div  class="row mx-lg-n1">
           <div class="col-4 py-4 px-lg-5">Mapa Actual: <span class="informacion" id="mapa">1ero</span></div>
@@ -85,7 +89,7 @@
           <div class="col-1 py-4 px-lg-5 border bg-light"><span id="cuadro3_4"></span></div>
         </div>
         <div  class="row mx-lg-n1">
-          <div class="col-4 py-4 px-lg-5">Resultado:<span class="informacion"  id="resultado"></span>  </div>
+          <div id="tmr" class="col-4 py-4 px-lg-5">Resultado:<span class="informacion"  id="resultado"></span><span>  </span>  </div>
 
           <div class="col-1 py-4 px-lg-5 border bg-light"><span id="cuadro4_0"></span></div>
           <div class="col-1 py-4 px-lg-5 border bg-light"><span id="cuadro4_1"></span></div>
@@ -171,6 +175,25 @@
       </div>
     </div>
         <!-- Ventana modal de instrucciones-->
+
+        <!-- Ventana modal al perder-->
+
+        <div
+        class="modal fade bd-example-modal-lg"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myLargeModalLabel"
+        aria-hidden="true"
+        id="alperder"
+      >
+        <div class="modal-dialog modal-lg modal-dialog-centered ">
+          <div class="modal-content">
+            <div class="tenor-gif-embed" data-postid="7237890" data-share-method="host" data-width="100%" data-aspect-ratio="1.8721804511278197"><a href="https://tenor.com/view/scary-game-over-saw-jigsaw-gif-7237890">Scary Game Over GIF</a> from <a href="https://tenor.com/search/scary-gifs">Scary GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+          </div>
+        </div>
+      </div>
+              <!-- Ventana modal al perder-->
+
 
 </body>
 

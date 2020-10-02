@@ -2,6 +2,7 @@ var contador = 0;
 var contadorVidas = 4;
 var nivelAPasar = 1;
 var estado_botones = 1; //1 es presente y 0 es oculto
+var contadorGanadas=0;
 
 function mover(accion, mapaActual, mapaMinas) {
   acciones = ["up", "down", "left", "right"];
@@ -107,9 +108,15 @@ function obtenerResultado(mapaActual, mapaPrevio) {
     var Mapa = document.getElementById("mapa");
     nivelActual.innerHTML = nivelAPasar;
     Mapa.innerHTML = nivelAPasar;
-    estado_botones = 0;
-    Estado_botones();
-    return "fin, llegaste al objetivo :D";
+    main();
+    contadorGanadas=contadorGanadas+1;
+    if(contadorGanadas==3){
+      estado_botones = 0;
+      Estado_botones();
+      finDelJuego();
+    }
+
+    return "FIN";
   }
   minasActual = (mapaActual.match(/\$/g) || []).length;
   minasPrevio = (mapaPrevio.match(/\$/g) || []).length;
@@ -120,7 +127,6 @@ function obtenerResultado(mapaActual, mapaPrevio) {
     a.innerHTML = contadorVidas;
     if (contador > 3) {
       mostrarImagenalPerder();
-      console.log("asdsaddas");
       return "robot destruido";
     } else {
       return "mina";
@@ -163,15 +169,14 @@ var Estado_botones = function () {
     document.querySelector("#abajo").style.display = "none";
     document.querySelector("#izquierda").style.display = "none";
     document.querySelector("#derecha").style.display = "none";
-    
+
     /*
     =======NO BORRES LO COMENTADO ES PA PREGUNTAR AL PROFE===============
     document.querySelector("#nivel").style.display = "none";
     document.querySelector("#cantidad_vidas").style.display = "none";
     document.querySelector("#mapa").style.display = "none";
     document.querySelector("#resultado").style.display = "none";*/
-
-  }else{
+  } else {
     /*document.querySelector("#arriba").setAttribute("class","btn btn-primary");
     document.getElementById("nivel").setAttribute("class","col-4 py-4 px-lg-5");*/
 
@@ -179,13 +184,10 @@ var Estado_botones = function () {
     document.querySelector("#abajo").style.display = "block";
     document.querySelector("#izquierda").style.display = "block";
     document.querySelector("#derecha").style.display = "block";
-  /*  document.querySelector("#nivel").style.display = "block";
+    /*  document.querySelector("#nivel").style.display = "block";
     document.querySelector("#cantidad_vidas").style.display = "block";
     document.querySelector("#mapa").style.display = "block";
     document.querySelector("#resultado").style.display = "block";*/
-
-   
-    
   }
 };
 
@@ -211,6 +213,7 @@ var arriba = function () {
   resultado.innerHTML = 3;
   estado_botones = 1;
   resultado.innerHTML = obtenerResultado(mapaActual, mapaPrevio);
+
   mapaPrevio = mapaActual;
   if (contador > 3) {
     estado_botones = 0;
@@ -227,6 +230,7 @@ var abajo = function () {
   pintar_grafico(matrix);
   estado_botones = 1;
   resultado.innerHTML = obtenerResultado(mapaActual, mapaPrevio);
+
   mapaPrevio = mapaActual;
   if (contador > 3) {
     estado_botones = 0;
@@ -259,6 +263,7 @@ var derecha = function () {
   pintar_grafico(matrix);
   estado_botones = 1;
   resultado.innerHTML = obtenerResultado(mapaActual, mapaPrevio);
+
   mapaPrevio = mapaActual;
   if (contador > 3) {
     estado_botones = 0;
@@ -269,13 +274,14 @@ var derecha = function () {
 };
 
 var botonArribaPressed = function () {
+  mostrarReloj();
   estado_botones = 0;
   Estado_botones();
-  matriz=obtenerMatrixDeMapa(mapaActual);
-  for(var i= 0; i<5;i++){
-    for(var j=0;j<5;j++){
-      if(matriz[j][i]=="+"){
-        document.getElementById("cuadro"+j+"_"+i).innerHTML = "↑";
+  matriz = obtenerMatrixDeMapa(mapaActual);
+  for (var i = 0; i < 5; i++) {
+    for (var j = 0; j < 5; j++) {
+      if (matriz[j][i] == "+") {
+        document.getElementById("cuadro" + j + "_" + i).innerHTML = "↑";
       }
     }
   }
@@ -283,13 +289,15 @@ var botonArribaPressed = function () {
 };
 
 var botonAbajoPressed = function () {
+  mostrarReloj();
+
   estado_botones = 0;
   Estado_botones();
-  matriz=obtenerMatrixDeMapa(mapaActual);
-  for(var i= 0; i<5;i++){
-    for(var j=0;j<5;j++){
-      if(matriz[j][i]=="+"){
-        document.getElementById("cuadro"+j+"_"+i).innerHTML = "↓";
+  matriz = obtenerMatrixDeMapa(mapaActual);
+  for (var i = 0; i < 5; i++) {
+    for (var j = 0; j < 5; j++) {
+      if (matriz[j][i] == "+") {
+        document.getElementById("cuadro" + j + "_" + i).innerHTML = "↓";
       }
     }
   }
@@ -297,13 +305,15 @@ var botonAbajoPressed = function () {
 };
 
 var botonIzquierdaPressed = function () {
+  mostrarReloj();
+
   estado_botones = 0;
   Estado_botones();
-  matriz=obtenerMatrixDeMapa(mapaActual);
-  for(var i= 0; i<5;i++){
-    for(var j=0;j<5;j++){
-      if(matriz[j][i]=="+"){
-        document.getElementById("cuadro"+j+"_"+i).innerHTML = "←";
+  matriz = obtenerMatrixDeMapa(mapaActual);
+  for (var i = 0; i < 5; i++) {
+    for (var j = 0; j < 5; j++) {
+      if (matriz[j][i] == "+") {
+        document.getElementById("cuadro" + j + "_" + i).innerHTML = "←";
       }
     }
   }
@@ -311,59 +321,68 @@ var botonIzquierdaPressed = function () {
 };
 
 var botonDerechaPressed = function () {
+  mostrarReloj();
+
   estado_botones = 0;
   Estado_botones();
-  matriz=obtenerMatrixDeMapa(mapaActual);
-  for(var i= 0; i<matriz.length;i++){
-    for(var j=0;j<matriz[i].length;j++){
-      if(matriz[j][i]=="+"){
-        document.getElementById("cuadro"+j+"_"+i).innerHTML = "→";
+  matriz = obtenerMatrixDeMapa(mapaActual);
+  for (var i = 0; i < matriz.length; i++) {
+    for (var j = 0; j < matriz[i].length; j++) {
+      if (matriz[j][i] == "+") {
+        document.getElementById("cuadro" + j + "_" + i).innerHTML = "→";
       }
     }
   }
   setTimeout(derecha, 3000);
 };
 
-var pintar_grafico=function(matrix){
-  for(var i= 0; i<matrix.length;i++){
-    for(var j=0;j<matrix[i].length;j++){
-        document.getElementById("cuadro"+j+"_"+i).innerHTML = matrix[j][i];     
+var pintar_grafico = function (matrix) {
+  for (var i = 0; i < matrix.length; i++) {
+    for (var j = 0; j < matrix[i].length; j++) {
+      document.getElementById("cuadro" + j + "_" + i).innerHTML = matrix[j][i];
     }
   }
+};
+
+var ocultarReloj = function () {
+
+  var a = document.getElementById("reloj");
+  a.style.display="none"; 
+  
+  
+
+};
+
+var mostrarReloj = function () {
+  var qwe=document.createElement("lottie-player");
+  qwe.setAttribute("id","reloj");
+  qwe.setAttribute("src","https://assets8.lottiefiles.com/packages/lf20_oR5Wcu.json");
+  qwe.setAttribute("speed","1.3");
+  qwe.setAttribute("autoplay","");
+  qwe.setAttribute("style","width:100px");
+  qwe.setAttribute("style","height:100px");
+
+  var asd=document.getElementById("resultado");
+  asd.appendChild(qwe);
+  var princi=document.getElementById("tmr");
+  princi.appendChild(asd);
+  document.getElementById("reloj").style.display = "block";
+  
+
+};
+
+
+
+var finDelJuego=function(){
+  $("#alperder").modal("show"); // abrir
 }
-
-
-
 
 var mostrarImagenalPerder = function () {
   $("#perder").modal({ backdrop: "static", keyboard: false }); //bloquea la pagina
   $("#perder").modal("show"); // abrir
 };
 
-//faltaria temporizador,reiniciar y componente flecha
-
-
-
-/* 
-var funcion=function() {
- 
-  if (time == -1) {
-    cuentaregre.style.display = "none";
-    return;
-  } else {
-    const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-    cuentaregre.innerHTML = `${minutes}:${seconds}`;
-    time--;
-  }
-}
-var empieza = 0.05;
-var time = empieza * 60;
-var cuentaregre = document.getElementById("countdown");
-setInterval(funcion, 1000); */
-
 var main = function () {
-
   $(function () {
     $("#qwe").modal(); //Muestra el modal al cargar la pagina
   });

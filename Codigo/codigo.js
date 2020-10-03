@@ -200,7 +200,7 @@ var tecla_presionada = function (evt) {
     botonArribaPressed();
   } else if (evt.keyCode == 39) {
     botonDerechaPressed();
-  } else {
+  } else if(evt.keyCode == 40) {
     botonAbajoPressed();
   }
 };
@@ -306,7 +306,7 @@ var botonAbajoPressed = function () {
 
 var botonIzquierdaPressed = function () {
   mostrarReloj();
-
+ 
   estado_botones = 0;
   Estado_botones();
   matriz = obtenerMatrixDeMapa(mapaActual);
@@ -322,7 +322,7 @@ var botonIzquierdaPressed = function () {
 
 var botonDerechaPressed = function () {
   mostrarReloj();
-
+ 
   estado_botones = 0;
   Estado_botones();
   matriz = obtenerMatrixDeMapa(mapaActual);
@@ -342,13 +342,13 @@ var pintar_grafico = function (matrix) {
       document.getElementById("cuadro" + j + "_" + i).innerHTML = matrix[j][i];
     }
   }
-  for (var i = 0; i < matrix.length; i++) {
+   for (var i = 0; i < matrix.length; i++) {
     for (var j = 0; j < 5; j++) {
       if (matrix[j][i] == "+") {
-        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img  src="../Imagenes/robo2.png"  ; />';
+        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img  src="../Imagenes/robop.png"  ; />';
       }
     }
-  }
+  } 
   /*
   for (var i = 0; i < 5; i++) {
     for (var j = 0; j < 5; j++) {
@@ -376,7 +376,7 @@ var ocultarReloj = function () {
 
 };
 
-var mostrarReloj = function () {
+ var mostrarReloj = function () {
   var qwe=document.createElement("lottie-player");
   qwe.setAttribute("id","reloj");
   qwe.setAttribute("src","https://assets8.lottiefiles.com/packages/lf20_oR5Wcu.json");
@@ -392,7 +392,7 @@ var mostrarReloj = function () {
   document.getElementById("reloj").style.display = "block";
   
 
-};
+}; 
 
 
 

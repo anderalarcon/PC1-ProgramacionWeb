@@ -4,7 +4,24 @@
 .jugar {
   color: #97c93e !important;
 }
+#arriba{
+  margin-top: 20px;
+}
 
+#asd{
+  display: block;
+  margin: auto;
+}
+img{/*este modificar */
+  padding-top: 25px;
+  display: block;
+  margin: auto;
+}
+
+#averr{
+  border: red solid;
+ display: block;
+}
 
 #header img {
   width: 80px;
@@ -18,6 +35,11 @@
   margin-top: 20px;
 
 }
+
+#tableroo div{
+  height: 110px;
+}
+
 #prueba{
   position: absolute;
   color: rgb(184, 50, 50);
@@ -50,7 +72,7 @@
   width: 50%;
   margin: auto;
   position: absolute;
-  margin-top: ;
+  /*margin-top: ;*/
 }
 
 

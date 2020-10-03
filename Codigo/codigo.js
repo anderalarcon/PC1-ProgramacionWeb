@@ -342,13 +342,14 @@ var pintar_grafico = function (matrix) {
       document.getElementById("cuadro" + j + "_" + i).innerHTML = matrix[j][i];
     }
   }
-  /*for (var i = 0; i < matrix.length; i++) {
+  for (var i = 0; i < matrix.length; i++) {
     for (var j = 0; j < 5; j++) {
       if (matrix[j][i] == "+") {
-        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img ; width="100px" height="50px" src="../Imagenes/patricio.png" />';
+        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img  src="../Imagenes/robo2.png"  ; />';
       }
     }
   }
+  /*
   for (var i = 0; i < 5; i++) {
     for (var j = 0; j < 5; j++) {
       if (matrix[j][i] == "0") {

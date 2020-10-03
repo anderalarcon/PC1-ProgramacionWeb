@@ -116,7 +116,7 @@ function obtenerResultado(mapaActual, mapaPrevio) {
       finDelJuego();
     }
 
-    return "FIN";
+    return "Pasaste de nivel!!";
   }
   minasActual = (mapaActual.match(/\$/g) || []).length;
   minasPrevio = (mapaPrevio.match(/\$/g) || []).length;
@@ -281,7 +281,7 @@ var botonArribaPressed = function () {
   for (var i = 0; i < 5; i++) {
     for (var j = 0; j < 5; j++) {
       if (matriz[j][i] == "+") {
-        document.getElementById("cuadro" + j + "_" + i).innerHTML = '+';
+        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img width="50px" height="50px" img src="../Imagenes/arriba.png" />';
       }
     }
   }
@@ -297,7 +297,7 @@ var botonAbajoPressed = function () {
   for (var i = 0; i < 5; i++) {
     for (var j = 0; j < 5; j++) {
       if (matriz[j][i] == "+") {
-        document.getElementById("cuadro" + j + "_" + i).innerHTML = "↓";
+        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img width="50px" height="50px" img src="../Imagenes/abajo.png" />';
       }
     }
   }
@@ -313,7 +313,7 @@ var botonIzquierdaPressed = function () {
   for (var i = 0; i < 5; i++) {
     for (var j = 0; j < 5; j++) {
       if (matriz[j][i] == "+") {
-        document.getElementById("cuadro" + j + "_" + i).innerHTML = "←";
+        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img width="50px" height="50px" img src="../Imagenes/izquierda.png" />';
       }
     }
   }
@@ -329,7 +329,7 @@ var botonDerechaPressed = function () {
   for (var i = 0; i < matriz.length; i++) {
     for (var j = 0; j < matriz[i].length; j++) {
       if (matriz[j][i] == "+") {
-        document.getElementById("cuadro" + j + "_" + i).innerHTML = "→";
+        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img width="50px" height="50px" img src="../Imagenes/derecha.png" />';
       }
     }
   }
@@ -345,7 +345,7 @@ var pintar_grafico = function (matrix) {
    for (var i = 0; i < matrix.length; i++) {
     for (var j = 0; j < 5; j++) {
       if (matrix[j][i] == "+") {
-        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img  src="../Imagenes/robop.png"  ; />';
+        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img src="../Imagenes/robop.png"  ; />';
       }
     }
   } 
@@ -356,14 +356,14 @@ var pintar_grafico = function (matrix) {
         document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img width="50px" height="50px" src="../Imagenes/escanor.png" />';
       }
     }
-  }
+  }*/
   for (var i = 0; i < 5; i++) {
     for (var j = 0; j < 5; j++) {
       if (matrix[j][i] == "$") {
-        document.getElementById("cuadro" + j + "_" + i).innerHTML = '< width="50px" height="50px" img src="../Imagenes/robot.jpg" />';
+        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img width="50px" height="50px" img src="../Imagenes/logojuego.png" />';
       }
     }
-  }*/
+  }
 };
 
 

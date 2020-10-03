@@ -281,7 +281,7 @@ var botonArribaPressed = function () {
   for (var i = 0; i < 5; i++) {
     for (var j = 0; j < 5; j++) {
       if (matriz[j][i] == "+") {
-        document.getElementById("cuadro" + j + "_" + i).innerHTML = "↑";
+        document.getElementById("cuadro" + j + "_" + i).innerHTML = '+';
       }
     }
   }
@@ -337,12 +337,34 @@ var botonDerechaPressed = function () {
 };
 
 var pintar_grafico = function (matrix) {
-  for (var i = 0; i < matrix.length; i++) {
+ for (var i = 0; i < matrix.length; i++) {
     for (var j = 0; j < matrix[i].length; j++) {
       document.getElementById("cuadro" + j + "_" + i).innerHTML = matrix[j][i];
     }
   }
+  /*for (var i = 0; i < matrix.length; i++) {
+    for (var j = 0; j < 5; j++) {
+      if (matrix[j][i] == "+") {
+        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img ; width="100px" height="50px" src="../Imagenes/patricio.png" />';
+      }
+    }
+  }
+  for (var i = 0; i < 5; i++) {
+    for (var j = 0; j < 5; j++) {
+      if (matrix[j][i] == "0") {
+        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img width="50px" height="50px" src="../Imagenes/escanor.png" />';
+      }
+    }
+  }
+  for (var i = 0; i < 5; i++) {
+    for (var j = 0; j < 5; j++) {
+      if (matrix[j][i] == "$") {
+        document.getElementById("cuadro" + j + "_" + i).innerHTML = '< width="50px" height="50px" img src="../Imagenes/robot.jpg" />';
+      }
+    }
+  }*/
 };
+
 
 var ocultarReloj = function () {
 

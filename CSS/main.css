@@ -1,9 +1,17 @@
 
+.tablaresultados{
+  margin-top: 25px;
+}
+.imagenes_grilla{
+  margin-top: 10px;
+  width: 50px ;
+  height: 50px;
+}
 .container{
-  padding-left: 40px;
+  padding-left: 55px;
 }
 #bodyjugar{
-  background-image: url(../Imagenes/desierto.jpg);
+  background-image: url(../Imagenes/p1.jpg);
 
 }
 .jugar {
@@ -23,8 +31,113 @@ img{/*este modificar */
   margin: auto;
 }
 
+.a1 {
+  border: 4px solid black;
+}
+
+.a2 {
+  border: 4px solid black;
+}
+
+.a3 {
+  border: 4px solid black;
+}
+
+.a4 {
+  border: 4px solid black;
+}
+
+.a5 {
+  border: 4px solid black;
+}
+.a6 {
+  border: 4px solid black;
+}
+
+.a7 {
+  border: 4px solid black;
+}
+
+.a8 {
+  border: 4px solid black;
+}
+
+.a9 {
+  border: 4px solid black;
+}
+
+.a10 {
+  border: 4px solid black;
+}
+.a11 {
+  border: 4px solid black;
+}
+.a12{
+  border: 4px solid black;
+}
+
+.a13 {
+  border: 4px solid black;
+}
+
+.a14 {
+  border: 4px solid black;
+}
+
+.a15 {
+  border: 4px solid black;
+}
+
+.a16 {
+  border: 4px solid black;
+}
+.a17 {
+  border: 4px solid black;
+}
+.a18 {
+  border: 4px solid black;
+}
+.a19 {
+  border: 4px solid black;
+}
+.a15 {
+  border: 4px solid black;
+}
+
+.aa {
+  border: 4px solid black;
+}
+.bb {
+  border: 4px solid black;
+}
+.cc {
+  border: 4px solid black;
+}
+.dd {
+  border: 4px solid black;
+}
+.ee {
+  border: 4px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #averr{
-  border: red solid;
  display: block;
 }
 
@@ -60,7 +173,6 @@ img{/*este modificar */
 }
 .modal-header {
   border-bottom:1px solid #eee;
-  background-color:beige;
   color: red;
  
    border-top-left-radius: 5px;
@@ -78,6 +190,10 @@ img{/*este modificar */
   margin: auto;
   position: absolute;
   /*margin-top: ;*/
+}
+
+.imagen_terreno {
+  background-image: url(../Imagenes/tierra.jpg);
 }
 
 
@@ -157,7 +273,7 @@ img{
 }
 
 .boton_acerca{
-  margin-top: 20px !important;
+  margin-top: 10px !important;
 }
 
 #titulo_acerca_de{
@@ -166,7 +282,8 @@ img{
 }
 
 .titulo{
-  color: darkblue;
+  color: red;
+  font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   margin-top: 0px;
@@ -221,36 +338,69 @@ table {
     margin-top: 20%;
   }
   #nivelasd{
-    color: white;
+    color: black;    font-size: 20px;
+    font-weight: bold;
+
+
   }
 
 
 #cantidad_vidas{
-  color: white;
+  color: black;    font-size: 20px;
+  font-weight: bold;
+
 }
 
 #vidas{
-  color: white;
+  color: black;    font-size: 20px;
+  font-weight: bold;
+
 }
 
 #mapa2{
-  color: white;
+  color: black;    font-size: 20px;
+  font-weight: bold;
 }
 
 #tmr{
-  color: white;
+  color:burlywood;    font-size: 20px;
+  font-weight: bold;
+
 }
 
 #resultado{
-  color: white;
+  color:burlywood;    font-size: 20px;
+  font-weight: bold;
+
 }
 
 #mapa{
-  color: white;
+  color: black;    font-size: 20px;
+  font-weight: bold;
+
+
 }
 #nivel{
-  color: white;
+  color: black;    font-size: 20px;
+  font-weight: bold;
+
+
 }
  
+.averrr{
+  font-size: 30px;
+  padding-left: 90px;
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+#confe{
+  font-size: 30px;
+  padding-left: 90px;
+  display: block;
+  margin: auto;
+  text-align: center;
+}
   
  

@@ -2,7 +2,7 @@ var contador = 0;
 var contadorVidas = 4;
 var nivelAPasar = 1;
 var estado_botones = 1; //1 es presente y 0 es oculto
-var contadorGanadas=0;
+var contadorGanadas = 0;
 
 function mover(accion, mapaActual, mapaMinas) {
   acciones = ["up", "down", "left", "right"];
@@ -109,8 +109,8 @@ function obtenerResultado(mapaActual, mapaPrevio) {
     nivelActual.innerHTML = nivelAPasar;
     Mapa.innerHTML = nivelAPasar;
     main();
-    contadorGanadas=contadorGanadas+1;
-    if(contadorGanadas==3){
+    contadorGanadas = contadorGanadas + 1;
+    if (contadorGanadas == 3) {
       estado_botones = 0;
       Estado_botones();
       finDelJuego();
@@ -200,12 +200,13 @@ var tecla_presionada = function (evt) {
     botonArribaPressed();
   } else if (evt.keyCode == 39) {
     botonDerechaPressed();
-  } else if(evt.keyCode == 40) {
+  } else if (evt.keyCode == 40) {
     botonAbajoPressed();
   }
 };
 
 var arriba = function () {
+  
   mapaActual = mover("up", mapaActual, mapaMinas); //usar estas funciones
   console.log(mapaActual);
   matrix = obtenerMatrixDeMapa(mapaActual);
@@ -278,10 +279,11 @@ var botonArribaPressed = function () {
   estado_botones = 0;
   Estado_botones();
   matriz = obtenerMatrixDeMapa(mapaActual);
-  for (var i = 0; i < 5; i++) {
-    for (var j = 0; j < 5; j++) {
+  for (var i = 0; i < matriz.length; i++) {
+    for (var j = 0; j < matriz[i].length; j++) {
       if (matriz[j][i] == "+") {
-        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img width="50px" height="50px" img src="../Imagenes/arriba.png" />';
+        document.getElementById("cuadro" + j + "_" + i).innerHTML =
+          '<img class="imagenes_grilla" src="../Imagenes/arriba.png" />';
       }
     }
   }
@@ -294,26 +296,30 @@ var botonAbajoPressed = function () {
   estado_botones = 0;
   Estado_botones();
   matriz = obtenerMatrixDeMapa(mapaActual);
-  for (var i = 0; i < 5; i++) {
-    for (var j = 0; j < 5; j++) {
+  for (var i = 0; i < matriz.length; i++) {
+    for (var j = 0; j < matriz[i].length; j++) {
       if (matriz[j][i] == "+") {
-        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img width="50px" height="50px" img src="../Imagenes/abajo.png" />';
+        document.getElementById("cuadro" + j + "_" + i).innerHTML =
+          '<img class="imagenes_grilla" src="../Imagenes/abajo.png" />';
       }
     }
   }
   setTimeout(abajo, 3000);
 };
 
+
+
 var botonIzquierdaPressed = function () {
   mostrarReloj();
- 
+
   estado_botones = 0;
   Estado_botones();
   matriz = obtenerMatrixDeMapa(mapaActual);
-  for (var i = 0; i < 5; i++) {
-    for (var j = 0; j < 5; j++) {
+  for (var i = 0; i < matriz.length; i++) {
+    for (var j = 0; j < matriz[i].length; j++) {
       if (matriz[j][i] == "+") {
-        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img width="50px" height="50px" img src="../Imagenes/izquierda.png" />';
+        document.getElementById("cuadro" + j + "_" + i).innerHTML =
+          '<img class="imagenes_grilla" src="../Imagenes/izquierda.png" />';
       }
     }
   }
@@ -322,14 +328,15 @@ var botonIzquierdaPressed = function () {
 
 var botonDerechaPressed = function () {
   mostrarReloj();
- 
+
   estado_botones = 0;
   Estado_botones();
   matriz = obtenerMatrixDeMapa(mapaActual);
   for (var i = 0; i < matriz.length; i++) {
     for (var j = 0; j < matriz[i].length; j++) {
       if (matriz[j][i] == "+") {
-        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img width="50px" height="50px" img src="../Imagenes/derecha.png" />';
+        document.getElementById("cuadro" + j + "_" + i).innerHTML =
+          '<img class="imagenes_grilla" src="../Imagenes/derecha.png" />';
       }
     }
   }
@@ -337,18 +344,19 @@ var botonDerechaPressed = function () {
 };
 
 var pintar_grafico = function (matrix) {
- for (var i = 0; i < matrix.length; i++) {
+  for (var i = 0; i < matrix.length; i++) {
     for (var j = 0; j < matrix[i].length; j++) {
       document.getElementById("cuadro" + j + "_" + i).innerHTML = matrix[j][i];
     }
   }
-   for (var i = 0; i < matrix.length; i++) {
-    for (var j = 0; j < 5; j++) {
+  for (var i = 0; i < matrix.length; i++) {
+    for (var j = 0; j < matrix[i].length; j++) {
       if (matrix[j][i] == "+") {
-        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img src="../Imagenes/robop.png"  ; />';
+        document.getElementById("cuadro" + j + "_" + i).innerHTML =
+          '<img src="../Imagenes/robop.png"  ; />';
       }
     }
-  } 
+  }
   /*
   for (var i = 0; i < 5; i++) {
     for (var j = 0; j < 5; j++) {
@@ -357,48 +365,44 @@ var pintar_grafico = function (matrix) {
       }
     }
   }*/
-  for (var i = 0; i < 5; i++) {
-    for (var j = 0; j < 5; j++) {
+  for (var i = 0; i < matrix.length; i++) {
+    for (var j = 0; j < matrix[i].length; j++) {
       if (matrix[j][i] == "$") {
-        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img width="50px" height="50px" img src="../Imagenes/logojuego.png" />';
+        document.getElementById("cuadro" + j + "_" + i).innerHTML =
+          '<img class="imagenes_grilla" src="../Imagenes/logojuego.png" />';
       }
     }
   }
 };
 
-
 var ocultarReloj = function () {
-
   var a = document.getElementById("reloj");
-  a.style.display="none"; 
-  
-  
-
+  a.style.display = "none";
 };
 
- var mostrarReloj = function () {
-  var qwe=document.createElement("lottie-player");
-  qwe.setAttribute("id","reloj");
-  qwe.setAttribute("src","https://assets8.lottiefiles.com/packages/lf20_oR5Wcu.json");
-  qwe.setAttribute("speed","1.3");
-  qwe.setAttribute("autoplay","");
-  qwe.setAttribute("style","width:100px");
-  qwe.setAttribute("style","height:100px");
+var mostrarReloj = function () {
+  var qwe = document.createElement("lottie-player");
+  qwe.setAttribute("id", "reloj");
+  qwe.setAttribute(
+    "src",
+    "https://assets8.lottiefiles.com/packages/lf20_oR5Wcu.json"
+  );
+  qwe.setAttribute("speed", "1.3");
+  qwe.setAttribute("autoplay", "");
+  qwe.setAttribute("style", "width:100px");
+  qwe.setAttribute("style", "height:100px");
 
-  var asd=document.getElementById("resultado");
+  var asd = document.getElementById("resultado");
   asd.appendChild(qwe);
-  var princi=document.getElementById("tmr");
+  var princi = document.getElementById("tmr");
   princi.appendChild(asd);
   document.getElementById("reloj").style.display = "block";
-  
+};
 
-}; 
-
-
-
-var finDelJuego=function(){
+var finDelJuego = function () {
+  $("#alperder").modal({ backdrop: "static", keyboard: false }); //bloquea la pagina
   $("#alperder").modal("show"); // abrir
-}
+};
 
 var mostrarImagenalPerder = function () {
   $("#perder").modal({ backdrop: "static", keyboard: false }); //bloquea la pagina
@@ -406,6 +410,8 @@ var mostrarImagenalPerder = function () {
 };
 
 var main = function () {
+
+  
   $(function () {
     $("#qwe").modal(); //Muestra el modal al cargar la pagina
   });
@@ -428,63 +434,15 @@ var main = function () {
 
   document.addEventListener("keydown", tecla_presionada);
   pintar_grafico(matrixActual);
+
+  document.onkeydown = function (e) {
+    return false;
+  };
+  
+
 };
+
+
 
 window.addEventListener("load", main);
 
-/* //ejemplo
-mapaInicial = `
-0000#
-00000
-00000
-00000
-+0000
-`
-mapaMinas = `
-0000#
-0$$$0
-0$000
-0$000
-+$000
-` */
-
-/* mapaActual = mapaInicial
-console.log(mapaActual)
-mapaPrevio = mapaActual
-mapaActual = mover("up", mapaActual, mapaMinas)
-console.log(mapaActual)
-console.log(obtenerResultado(mapaActual, mapaPrevio))
-mapaPrevio = mapaActual
-mapaActual = mover("up", mapaActual, mapaMinas)
-console.log(mapaActual)
-console.log(obtenerResultado(mapaActual, mapaPrevio))
-mapaPrevio = mapaActual
-mapaActual = mover("right", mapaActual, mapaMinas)
-console.log(mapaActual)
-console.log(obtenerResultado(mapaActual, mapaPrevio))
-mapaPrevio = mapaActual
-mapaActual = mover("up", mapaActual, mapaMinas)
-console.log(mapaActual)
-console.log(obtenerResultado(mapaActual, mapaPrevio))
-mapaPrevio = mapaActual
-mapaActual = mover("up", mapaActual, mapaMinas)
-console.log(mapaActual)
-console.log(obtenerResultado(mapaActual, mapaPrevio))
-mapaPrevio = mapaActual
-mapaActual = mover("right", mapaActual, mapaMinas)
-console.log(mapaActual)
-console.log(obtenerResultado(mapaActual, mapaPrevio))
-mapaPrevio = mapaActual
-mapaActual = mover("right", mapaActual, mapaMinas)
-console.log(mapaActual)
-console.log(obtenerResultado(mapaActual, mapaPrevio))
-mapaPrevio = mapaActual
-mapaActual = mover("right", mapaActual, mapaMinas)
-console.log(mapaActual)
-console.log(obtenerResultado(mapaActual, mapaPrevio))
-mapaPrevio = mapaActual
-mapaActual = mover("right", mapaActual, mapaMinas)
-console.log(mapaActual)
-console.log(obtenerResultado(mapaActual, mapaPrevio))
-
-console.log(obtenerMatrixDeMapa(mapaActual)) */

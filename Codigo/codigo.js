@@ -194,6 +194,8 @@ var Estado_botones = function () {
 var flecha_movimiento;
 
 var tecla_presionada = function (evt) {
+  
+
   if (evt.keyCode == 37) {
     botonIzquierdaPressed();
   } else if (evt.keyCode == 38) {
@@ -203,6 +205,7 @@ var tecla_presionada = function (evt) {
   } else if (evt.keyCode == 40) {
     botonAbajoPressed();
   }
+  ort();
 };
 
 var arriba = function () {
@@ -287,7 +290,9 @@ var botonArribaPressed = function () {
       }
     }
   }
+
   setTimeout(arriba, 3000);
+
 };
 
 var botonAbajoPressed = function () {
@@ -409,9 +414,35 @@ var mostrarImagenalPerder = function () {
   $("#perder").modal("show"); // abrir
 };
 
-var main = function () {
+function numbersonly(e, decimal) //bloquea numeros 
+{
+    var key;
+    var keychar;
 
-  
+    if (window.event) 
+        key = window.event.keyCode;
+    else if (e) 
+        key = e.which;
+    else 
+        return true;
+
+    keychar = String.fromCharCode(key);
+
+    if ((key==null) || (key==0) || (key==8) ||  (key==9) || (key==13) || (key==27))
+       return true;     
+    else if ((("0123456789").indexOf(keychar) > -1))
+       return true;
+    else if (decimal && (keychar == "."))
+       return true;        
+    else
+       return false;
+}
+
+
+var main = function () {
+  numbersonly();
+
+
   $(function () {
     $("#qwe").modal(); //Muestra el modal al cargar la pagina
   });
@@ -437,10 +468,12 @@ var main = function () {
 
   document.onkeydown = function (e) {
     return false;
-  };
   
 
+ 
 };
+};
+
 
 
 

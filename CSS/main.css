@@ -1,4 +1,12 @@
+#bombapri{
+  width: 100px; 
+  height: 100px;
 
+}
+#lottie{
+  width: 100px; 
+  height: 100px;
+}
 .tablaresultados{
   margin-top: 25px;
 }
@@ -345,47 +353,47 @@ table {
   }
 
 
-#cantidad_vidas{
-  color: black;    font-size: 20px;
-  font-weight: bold;
-
-}
-
-#vidas{
-  color: black;    font-size: 20px;
-  font-weight: bold;
-
-}
-
-#mapa2{
-  color: black;    font-size: 20px;
-  font-weight: bold;
-}
-
-#tmr{
-  color:burlywood;    font-size: 20px;
-  font-weight: bold;
-
-}
-
-#resultado{
-  color:burlywood;    font-size: 20px;
-  font-weight: bold;
-
-}
-
-#mapa{
-  color: black;    font-size: 20px;
-  font-weight: bold;
-
-
-}
-#nivel{
-  color: black;    font-size: 20px;
-  font-weight: bold;
-
-
-}
+  #cantidad_vidas{
+    color: rgb(247, 83, 7);   font-size: 20px;
+    font-weight: bold;
+  
+  }
+  
+  #vidas{
+    color: black;    font-size: 20px;
+    font-weight: bold;
+  
+  }
+  
+  #mapa2{
+    color: black;    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  #tmr{
+    color: black;    font-size: 20px;
+    font-weight: bold;
+  
+  }
+  
+  #resultado{
+    color: rgb(247, 83, 7);    font-size: 20px;
+    font-weight: bold;
+  
+  }
+  
+  #mapa{
+    color: rgb(247, 83, 7);   font-size: 20px;
+    font-weight: bold;
+  
+  
+  }
+  #nivel{
+    color: rgb(247, 83, 7);    font-size: 20px;
+    font-weight: bold;
+  
+  
+  }
  
 .averrr{
   font-size: 30px;

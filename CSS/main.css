@@ -3,9 +3,21 @@
   height: 100px;
 
 }
+
+#ab{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#tableroo{
+  margin-top: 8px;
+}
 #lottie{
   width: 100px; 
   height: 100px;
+}
+#jugarrr{
+  width: 50px; 
+  height: 60px;
 }
 .tablaresultados{
   margin-top: 25px;

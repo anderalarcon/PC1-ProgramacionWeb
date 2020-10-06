@@ -222,6 +222,9 @@ var arriba = function () {
   } else {
     Estado_botones();
   }
+  document.addEventListener("keydown",tecla_presionada);
+
+
 };
 
 var abajo = function () {
@@ -239,6 +242,8 @@ var abajo = function () {
   } else {
     Estado_botones();
   }
+  document.addEventListener("keydown",tecla_presionada);
+
 };
 
 var izquierda = function () {
@@ -255,6 +260,8 @@ var izquierda = function () {
   } else {
     Estado_botones();
   }
+  document.addEventListener("keydown",tecla_presionada);
+
 };
 
 var derecha = function () {
@@ -272,6 +279,8 @@ var derecha = function () {
   } else {
     Estado_botones();
   }
+  document.addEventListener("keydown",tecla_presionada);
+
 };
 
 var botonArribaPressed = function () {
@@ -288,7 +297,9 @@ var botonArribaPressed = function () {
     }
   }
 
-  setTimeout(arriba, 3000);
+  setTimeout(arriba, 3500);
+  document.removeEventListener("keydown",tecla_presionada);
+
   
 };
 
@@ -306,7 +317,9 @@ var botonAbajoPressed = function () {
       }
     }
   }
-  setTimeout(abajo, 3000);
+  setTimeout(abajo, 3500);
+  document.removeEventListener("keydown",tecla_presionada);
+
 };
 
 var botonIzquierdaPressed = function () {
@@ -323,7 +336,9 @@ var botonIzquierdaPressed = function () {
       }
     }
   }
-  setTimeout(izquierda, 3000);
+  setTimeout(izquierda, 3500);
+  document.removeEventListener("keydown",tecla_presionada);
+
 };
 
 var botonDerechaPressed = function () {
@@ -340,7 +355,9 @@ var botonDerechaPressed = function () {
       }
     }
   }
-  setTimeout(derecha, 3000);
+  setTimeout(derecha, 3500);
+  document.removeEventListener("keydown",tecla_presionada);
+
 };
 
 var pintar_grafico = function (matrix) {

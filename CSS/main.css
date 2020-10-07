@@ -388,13 +388,13 @@ table {
   }
   
   #tmr{
-    color: black;    font-size: 20px;
+    color: black;    font-size: 15px;
     font-weight: bold;
   
   }
   
   #resultado{
-    color: rgb(247, 83, 7);    font-size: 20px;
+    color: rgb(247, 83, 7);    font-size: 15px;
     font-weight: bold;
   
   }
@@ -426,6 +426,10 @@ table {
   display: block;
   margin: auto;
   text-align: center;
+}
+
+.tablaresultados{
+  margin-right: 60px;
 }
   
  

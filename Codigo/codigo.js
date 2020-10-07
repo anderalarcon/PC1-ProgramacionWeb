@@ -116,7 +116,7 @@ function obtenerResultado(mapaActual, mapaPrevio) {
       finDelJuego();
     }
 
-    return "Pasaste de nivel!!";
+    return "Next Lvl!";
   }
   minasActual = (mapaActual.match(/\$/g) || []).length;
   minasPrevio = (mapaPrevio.match(/\$/g) || []).length;
@@ -127,13 +127,13 @@ function obtenerResultado(mapaActual, mapaPrevio) {
     a.innerHTML = contadorVidas;
     if (contador > 3) {
       mostrarImagenalPerder();
-      return "robot destruido";
+      return "Robot destruido";
     } else {
-      return "mina";
+      return "Mina";
     }
   }
   if (minasActual == minasPrevio) {
-    return "sin mina";
+    return "Sin mina";
   }
 }
 function obtenerMatrixDeMapa(mapa) {
@@ -423,7 +423,7 @@ var finDelJuego = function () {
 
 var mostrarImagenalPerder = function () {
   $("#perder").modal({ backdrop: "static", keyboard: false }); //bloquea la pagina
-  $("#perder").modal("show"); // abrir
+  $("#perder").modal();// abrir
 };
 
 
@@ -434,6 +434,7 @@ var main = function () {
   
   $(function () {
     $("#qwe").modal(); //Muestra el modal al cargar la pagina
+   
   });
   mapaActual = mapaInicial;
   console.log(mapaActual);

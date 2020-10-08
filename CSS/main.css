@@ -204,11 +204,8 @@ img{/*este modificar */
    border-top-right-radius: 5px;
 }
 #titulomodal{
-  font-size: 30px;
-  padding-left: 90px;
-  display: block;
-  margin: auto;
   text-align: center;
+  font-size: 30px;
 }
 #btnJugarDenuevo{
   width: 50%;
@@ -258,6 +255,7 @@ img{/*este modificar */
 
 #footer {
   background: linear-gradient(90deg, #1c3643, #273b47 25%, #1e5372);
+  
 }
 
 #footer a {
@@ -431,5 +429,22 @@ table {
 .tablaresultados{
   margin-right: 60px;
 }
+
+#frase{
+  text-align: center;
+  font-size: 30px;
+}
+
+@media  (max-width:640px){
+  .container{
+    margin-left:0px;
+  }
+
+  #campomin{
+    color: red;
+  }
+}
+
   
  
+  

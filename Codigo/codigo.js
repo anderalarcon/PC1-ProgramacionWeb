@@ -110,11 +110,22 @@ function obtenerResultado(mapaActual, mapaPrevio) {
     Mapa.innerHTML = nivelAPasar;
     main();
     contadorGanadas = contadorGanadas + 1;
-    if (contadorGanadas == 3) {
-      estado_botones = 0;
-      Estado_botones();
-      finDelJuego();
-    }
+    if (contadorGanadas == 1) {
+      document.getElementById("mapa").innerHTML="2do";
+      //Estado_botones();
+  }
+  
+  else if(contadorGanadas ==2){
+    document.getElementById("mapa").innerHTML="3ro";
+    //Estado_botones();
+  }
+  
+  else if(contadorGanadas==3){
+    document.getElementById("mapa").innerHTML="FIN";
+    estado_botones = 0;
+    Estado_botones();
+    finDelJuego();
+  }
 
     return "Next Lvl!";
   }
@@ -397,7 +408,7 @@ var pintar_grafico = function (matrix) {
   for (var i = 0; i < matrix.length; i++) {
     for (var j = 0; j < matrix[i].length; j++) {
       if (matrix[j][i] == "#") {
-        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img id="soldado" src="../Imagenes/muerto.png" />';
+        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img id="soldado" src="../Imagenes/soldado.png" />';
       }
     }
   }

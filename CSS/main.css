@@ -1,6 +1,15 @@
+#modalganar{
+  width: 500px;
+  height: 500px;
+}
+
 #bombapri {
   width: 70px;
   height: 70px;
+}
+#campomin{
+  font-size: 20px;
+  color: red;
 }
 
 #ab {
@@ -15,8 +24,8 @@
   height: 100px;
 }
 #jugarrr {
-  width: 50px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
 }
 .tablaresultados {
   margin-top: 25px;
@@ -28,14 +37,18 @@
 }
 
 #soldado{
-  margin-top: 10px;
-  width: 60px ;
-  height: 40px;
+  margin-top: 0px;
+  width: 90px ;
+  height: 70px;
+}
+
+#zz{
+  margin-top: 150px;
 }
 
 .container {
   padding-left: 70px;
-  margin-top: 50px;
+ /* margin-top: 50px;*/
 }
 #bodyjugar {
   background-image: url(../Imagenes/p1.jpg);
@@ -340,7 +353,7 @@ tr:nth-child(even) td:nth-child(even) {
   margin-top: 20%;
 }
 #nivelasd {
-  color: black;
+  color: rgb(65, 141, 65);
   font-size: 20px;
   font-weight: bold;
 }
@@ -352,26 +365,26 @@ tr:nth-child(even) td:nth-child(even) {
 }
 
 #vidas {
-  color: black;
+  color: rgb(65, 141, 65);
   font-size: 20px;
   font-weight: bold;
 }
 
 #mapa2 {
-  color: black;
+  color: rgb(65, 141, 65);
   font-size: 20px;
   font-weight: bold;
 }
 
 #tmr {
   color: black;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
 }
 
 #resultado {
   color: rgb(247, 83, 7);
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -411,24 +424,26 @@ tr:nth-child(even) td:nth-child(even) {
   font-size: 30px;
 }
 
-@media (max-width: 360px) {/*galaxy s5*/
-  
-  .robott {
-    width: 30px;
-    margin-top: 15px;
-  }
 
-  #campomin {
-    color: red;
-  }
+@media (max-width: 1366px) {/*ipad pro Horizontal */
 
-  .container {
-    padding-left: 55px;
+  #soldado{
     margin-top: 0px;
+    width: 100px ;
+    height: 100px;
   }
-}
 
-@media (max-width: 1366px) {/*ipad pro*/
+  #zz{
+    margin-top: 130px;
+    padding-left: 80px;
+  }
+  .robott{
+    margin-top: 0px;
+    height: 100px;
+  }
+  .imagenes_grilla{
+    margin-top: 25px;
+  }
   #jugarrr{
     width: 100px;
     height: 100px;
@@ -450,10 +465,7 @@ tr:nth-child(even) td:nth-child(even) {
     font-size: 30px;
   }
   
-  .container {
-    padding-left: 130px;
-    margin-top: 40x;
-  }
+ 
   #tableroo div {
     height: 100px;
   }
@@ -503,8 +515,264 @@ tr:nth-child(even) td:nth-child(even) {
     font-size: 35px;
     font-weight: bold;
   }
+  #arriba{
+    width: 60px;
+    height: 60px;
+    font-size: 35px;
+  }
+  #abajo{
+    width: 60px;
+    height: 60px;
+    font-size: 35px;
+
+  }
+  #izquierda{
+    width: 60px;
+    height: 60px;
+    font-size: 35px;
+
+  }
+  #derecha{
+    width: 60px;
+    height: 60px;
+    font-size: 35px;
+
+  }
   
 }
+
+@media (max-width: 1024px) {/*ipad pro Vertical */
+  #soldado{
+    margin-top: 0px;
+    width: 150px ;
+    height: 150px;
+ 
+  }
+
+  #zz{
+    margin-top: 180px;
+    padding-left: 70px;
+  }
+  .robott{
+    margin-top: 0px;
+    width: 90px;
+    height: 140px;
+  }
+  .imagenes_grilla{
+    margin-top: 25px;
+  }
+  #jugarrr{
+    width: 100px;
+    height: 100px;
+  }
+  #campomin{
+    font-size: 30px;
+    color: red;
+  }
+  #instrucciones{
+    font-size: 30px;
+  }
+  #instrucciones{
+    font-size: 30px;
+  }
+  #acercaDe{
+    font-size: 30px;
+  }
+  #boton_nuevo_juego{
+    font-size: 30px;
+  }
+  
+ 
+  #tableroo div {
+    height: 150px;
+  }
+  #nivelasd {
+    color: rgb(65, 141, 65);
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  #cantidad_vidas {
+    color: rgb(247, 83, 7);
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  #vidas {
+    color: rgb(65, 141, 65);
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  #mapa2 {
+    color: rgb(65, 141, 65);
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  #tmr {
+    color: rgb(65, 141, 65);
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  #resultado {
+    color: rgb(247, 83, 7);
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  #mapa {
+    color: rgb(247, 83, 7);
+    font-size: 35px;
+    font-weight: bold;
+  }
+  #nivel {
+    color: rgb(247, 83, 7);
+    font-size: 35px;
+    font-weight: bold;
+  }
+  #arriba{
+    width: 60px;
+    height: 60px;
+    font-size: 35px;
+  }
+  #abajo{
+    width: 60px;
+    height: 60px;
+    font-size: 35px;
+
+  }
+  #izquierda{
+    width: 60px;
+    height: 60px;
+    font-size: 35px;
+
+  }
+  #derecha{
+    width: 60px;
+    height: 60px;
+    font-size: 35px;
+
+  }
+  
+}
+
+@media (max-width: 360px)  {/*galaxy s5*/
+  #zz{
+    margin-top: 0px;
+    padding-left: 0px;
+  }
+
+
+  #tableroo div {
+    height: 80px;
+  }
+  .imagenes_grilla{
+    margin-top: 15px;
+    width: 25px;
+  }
+  #soldado{
+    margin-right:0px;
+    height: 70px;
+    width: 40px;
+  }
+
+
+  #jugarrr{
+    width: 50px;
+    height: 50px;
+  }
+  
+  .robott {
+    width: 40px;
+    margin-top: 0px;
+    height: 60px;
+  }
+
+  #campomin {
+    color: red;
+    font-size: 15px;
+  }
+
+  .container {
+    padding-left: 55px;
+    /*margin-top: 0px;*/
+  }
+  #nivelasd {
+    color: rgb(65, 141, 65);
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  #cantidad_vidas {
+    color: rgb(247, 83, 7);
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  #vidas {
+    color: rgb(65, 141, 65);
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  #mapa2 {
+    color: rgb(65, 141, 65);
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  #tmr {
+    color: rgb(65, 141, 65);
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  #resultado {
+    color: rgb(247, 83, 7);
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  #mapa {
+    color: rgb(247, 83, 7);
+    font-size: 15px;
+    font-weight: bold;
+  }
+  #nivel {
+    color: rgb(247, 83, 7);
+    font-size: 15px;
+    font-weight: bold;
+  }
+  #arriba{
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+  }
+  #abajo{
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+
+  }
+  #izquierda{
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+
+  }
+  #derecha{
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+
+  }
+
+
+}
+
+
 
 #botonjugar {
   display: block;

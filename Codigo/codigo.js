@@ -112,12 +112,12 @@ function obtenerResultado(mapaActual, mapaPrevio) {
     contadorGanadas = contadorGanadas + 1;
     if (contadorGanadas == 1) {
       document.getElementById("mapa").innerHTML="2do";
-      //Estado_botones();
+      return "Next Lvl!";
   }
   
   else if(contadorGanadas ==2){
     document.getElementById("mapa").innerHTML="3ro";
-    //Estado_botones();
+    return "Next Lvl!";
   }
   
   else if(contadorGanadas==3){
@@ -125,9 +125,10 @@ function obtenerResultado(mapaActual, mapaPrevio) {
     estado_botones = 0;
     Estado_botones();
     finDelJuego();
+    return "GANASTE!";
   }
 
-    return "Next Lvl!";
+    
   }
   minasActual = (mapaActual.match(/\$/g) || []).length;
   minasPrevio = (mapaPrevio.match(/\$/g) || []).length;
@@ -140,11 +141,11 @@ function obtenerResultado(mapaActual, mapaPrevio) {
       mostrarImagenalPerder();
       return "Robot destruido";
     } else {
-      return "Mina";
+      return "KABOOM!";
     }
   }
   if (minasActual == minasPrevio) {
-    return "Sin mina";
+    return "UFF!";
   }
 }
 function obtenerMatrixDeMapa(mapa) {
@@ -180,25 +181,11 @@ var Estado_botones = function () {
     document.querySelector("#abajo").style.display = "none";
     document.querySelector("#izquierda").style.display = "none";
     document.querySelector("#derecha").style.display = "none";
-
-    /*
-    =======NO BORRES LO COMENTADO ES PA PREGUNTAR AL PROFE===============
-    document.querySelector("#nivel").style.display = "none";
-    document.querySelector("#cantidad_vidas").style.display = "none";
-    document.querySelector("#mapa").style.display = "none";
-    document.querySelector("#resultado").style.display = "none";*/
   } else {
-    /*document.querySelector("#arriba").setAttribute("class","btn btn-primary");
-    document.getElementById("nivel").setAttribute("class","col-4 py-4 px-lg-5");*/
-
     document.querySelector("#arriba").style.display = "block";
     document.querySelector("#abajo").style.display = "block";
     document.querySelector("#izquierda").style.display = "block";
     document.querySelector("#derecha").style.display = "block";
-    /*  document.querySelector("#nivel").style.display = "block";
-    document.querySelector("#cantidad_vidas").style.display = "block";
-    document.querySelector("#mapa").style.display = "block";
-    document.querySelector("#resultado").style.display = "block";*/
   }
 };
 
@@ -213,8 +200,7 @@ var tecla_presionada = function (evt) {
     botonDerechaPressed();
   } else if (evt.keyCode == 40) {
     botonAbajoPressed();
-  }
-  
+  } 
 };
 
 var arriba = function () {
@@ -235,8 +221,6 @@ var arriba = function () {
   }
   document.getElementById("boton_nuevo_juego").innerHTML="Nuevo Juego";
   document.addEventListener("keydown",tecla_presionada);
-
-
 };
 
 var abajo = function () {
@@ -464,16 +448,12 @@ var main = function () {
   matrixActual = obtenerMatrixDeMapa(mapaActual);
   matrixMinas = obtenerMatrixDeMapa(mapaMinas);
 
-  /*  document.getElementById("arriba").addEventListener("click",botonArribaPressed);
+  document.getElementById("arriba").addEventListener("click",botonArribaPressed);
   document.getElementById("derecha").addEventListener("click", botonDerechaPressed);
   document.getElementById("izquierda").addEventListener("click", botonIzquierdaPressed);
-  document.getElementById("abajo").addEventListener("click", botonAbajoPressed); */
+  document.getElementById("abajo").addEventListener("click", botonAbajoPressed); 
 
-  document.getElementById("arriba").addEventListener("click", arriba);
 
-  document.getElementById("derecha").addEventListener("click", derecha);
-  document.getElementById("izquierda").addEventListener("click", izquierda);
-  document.getElementById("abajo").addEventListener("click", abajo);
 
   document.addEventListener("keydown", tecla_presionada);
   pintar_grafico(matrixActual);
@@ -484,7 +464,5 @@ var main = function () {
 
   
 };
-
-
 
 window.addEventListener("load", main);

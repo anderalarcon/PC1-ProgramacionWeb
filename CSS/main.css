@@ -1,51 +1,58 @@
-#bombapri{
-  width: 100px; 
-  height: 100px;
-
+#bombapri {
+  width: 70px;
+  height: 70px;
 }
 
-#ab{
+#ab {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-#tableroo{
+#tableroo {
   margin-top: 5px;
 }
-#lottie{
-  width: 100px; 
+#lottie {
+  width: 100px;
   height: 100px;
 }
-#jugarrr{
-  width: 50px; 
+#jugarrr {
+  width: 50px;
   height: 60px;
 }
-.tablaresultados{
+.tablaresultados {
   margin-top: 25px;
 }
-.imagenes_grilla{
+.imagenes_grilla {
   margin-top: 10px;
-  width: 50px ;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
-.container{
-  padding-left: 55px;
-}
-#bodyjugar{
-  background-image: url(../Imagenes/p1.jpg);
 
+#soldado{
+  margin-top: 10px;
+  width: 60px ;
+  height: 40px;
+}
+
+.container {
+  padding-left: 70px;
+  margin-top: 50px;
+}
+#bodyjugar {
+  background-image: url(../Imagenes/p1.jpg);
 }
 .jugar {
   color: #97c93e !important;
 }
-#arriba{
+#arriba {
   margin-top: 20px;
 }
 
-#asd{
+#asd {
   display: block;
   margin: auto;
 }
-img{/*este modificar */
+img {
+  /*este modificar */
   padding-top: 15 px;
   display: block;
   margin: auto;
@@ -92,7 +99,7 @@ img{/*este modificar */
 .a11 {
   border: 4px solid black;
 }
-.a12{
+.a12 {
   border: 4px solid black;
 }
 
@@ -140,56 +147,37 @@ img{/*este modificar */
   border: 4px solid black;
 }
 
-.abc{
+.abc {
   border: 4px solid black;
-
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#averr{
- display: block;
+#averr {
+  display: block;
 }
 
 #header img {
   width: 80px;
 }
 
-#imagen1{
+#imagen1 {
   margin-top: 20px;
 }
 
-#imagen2{
+#imagen2 {
   margin-top: 20px;
-
 }
 
-#tableroo div{
+#tableroo div {
   height: 75px;
 }
 
-#prueba{
+#prueba {
   position: absolute;
   color: rgb(184, 50, 50);
   padding-left: 25%;
   padding-top: 45%;
 }
-#prueba2{
+#prueba2 {
   font-size: 35px;
   position: absolute;
   color: rgb(230, 6, 6);
@@ -197,17 +185,17 @@ img{/*este modificar */
   padding-top: 30%;
 }
 .modal-header {
-  border-bottom:1px solid #eee;
+  border-bottom: 1px solid #eee;
   color: red;
- 
-   border-top-left-radius: 5px;
-   border-top-right-radius: 5px;
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
-#titulomodal{
+#titulomodal {
   text-align: center;
   font-size: 30px;
 }
-#btnJugarDenuevo{
+#btnJugarDenuevo {
   width: 50%;
   margin: auto;
   position: absolute;
@@ -218,9 +206,8 @@ img{/*este modificar */
   background-image: url(../Imagenes/tierra.jpg);
 }
 
-
 #main .carousel-inner img {
-  max-height: 70vh;
+  max-height: 74.5vh;
   object-fit: cover;
   filter: grayscale(70%);
 }
@@ -255,56 +242,51 @@ img{/*este modificar */
 
 #footer {
   background: linear-gradient(90deg, #1c3643, #273b47 25%, #1e5372);
-  
 }
 
 #footer a {
   color: white;
 }
 
-.ewq{
+.ewq {
   color: white;
   font-size: 20px;
-  
 }
 
-#cuadro4_0{
+#cuadro4_0 {
   display: block;
   padding-left: 0px;
 }
-img{
+img {
   padding-left: 0px;
 }
 
-#botonjugar{
-  
- width: 20%;
+#botonjugar {
+  width: 20%;
 }
 
-#suerte{
+#suerte {
   text-align: center;
   font-weight: bold;
 }
 
-
-
-#logou{
+#logou {
   width: 8.2%;
   text-align: center;
   display: block;
   margin: auto;
 }
 
-.boton_acerca{
+.boton_acerca {
   margin-top: 10px !important;
 }
 
-#titulo_acerca_de{
-  color:  rgb(189, 105, 10); 
+#titulo_acerca_de {
+  color: rgb(189, 105, 10);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.titulo{
+.titulo {
   color: red;
   font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
@@ -313,104 +295,98 @@ img{
   margin-bottom: 0px;
 }
 
-.subtitulo{
-  color:rgb(35, 219, 179);
+.subtitulo {
+  color: rgb(35, 219, 179);
   text-align: center;
   font-size: 18px;
 }
 
-.contador{
+.contador {
   width: 75px;
   height: 75px;
 }
 
-.imagen_perfil{
+.imagen_perfil {
   width: 150px;
   height: 150px;
-  display:block;
-  margin:auto;  
+  display: block;
+  margin: auto;
 }
 
-.informacion{
-  font-weight:bold;
+.informacion {
+  font-weight: bold;
   color: cornflowerblue;
 }
 
-
 table {
-  margin: auto; 
-  border: outset black 6px; 
-  background: black; 
-  }
-  td {
-  line-height: 0; 
-  width: 100px; height: 100px; 
-  background: black; 
-  text-align: center; 
-  vertical-align: middle; 
+  margin: auto;
+  border: outset black 6px;
+  background: black;
+}
+td {
+  line-height: 0;
+  width: 100px;
+  height: 100px;
+  background: black;
+  text-align: center;
+  vertical-align: middle;
+}
+tr:nth-child(odd) td:nth-child(odd),
+tr:nth-child(even) td:nth-child(even) {
+  background: white;
+}
 
-  }
-  tr:nth-child(odd) td:nth-child(odd), 
-  tr:nth-child(even) td:nth-child(even) {
-  background:white; 
-  }
+#tablero {
+  margin-top: 20%;
+}
+#nivelasd {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
 
+#cantidad_vidas {
+  color: rgb(247, 83, 7);
+  font-size: 20px;
+  font-weight: bold;
+}
 
+#vidas {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
 
-  #tablero{
-    margin-top: 20%;
-  }
-  #nivelasd{
-    color: black;    font-size: 20px;
-    font-weight: bold;
+#mapa2 {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
 
+#tmr {
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+}
 
-  }
+#resultado {
+  color: rgb(247, 83, 7);
+  font-size: 15px;
+  font-weight: bold;
+}
 
+#mapa {
+  color: rgb(247, 83, 7);
+  font-size: 20px;
+  font-weight: bold;
+}
+#nivel {
+  color: rgb(247, 83, 7);
+  font-size: 20px;
+  font-weight: bold;
+}
 
-  #cantidad_vidas{
-    color: rgb(247, 83, 7);   font-size: 20px;
-    font-weight: bold;
-  
-  }
-  
-  #vidas{
-    color: black;    font-size: 20px;
-    font-weight: bold;
-  
-  }
-  
-  #mapa2{
-    color: black;    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  #tmr{
-    color: black;    font-size: 15px;
-    font-weight: bold;
-  
-  }
-  
-  #resultado{
-    color: rgb(247, 83, 7);    font-size: 15px;
-    font-weight: bold;
-  
-  }
-  
-  #mapa{
-    color: rgb(247, 83, 7);   font-size: 20px;
-    font-weight: bold;
-  
-  
-  }
-  #nivel{
-    color: rgb(247, 83, 7);    font-size: 20px;
-    font-weight: bold;
-  
-  
-  }
- 
-.averrr{
+.averrr {
   font-size: 30px;
   padding-left: 90px;
   display: block;
@@ -418,7 +394,7 @@ table {
   text-align: center;
 }
 
-#confe{
+#confe {
   font-size: 30px;
   padding-left: 90px;
   display: block;
@@ -426,25 +402,114 @@ table {
   text-align: center;
 }
 
-.tablaresultados{
+.tablaresultados {
   margin-right: 60px;
 }
 
-#frase{
+#frase {
   text-align: center;
   font-size: 30px;
 }
 
-@media  (max-width:640px){
-  .container{
-    margin-left:0px;
+@media (max-width: 360px) {/*galaxy s5*/
+  
+  .robott {
+    width: 30px;
+    margin-top: 15px;
   }
 
-  #campomin{
+  #campomin {
     color: red;
+  }
+
+  .container {
+    padding-left: 55px;
+    margin-top: 0px;
   }
 }
 
+@media (max-width: 1366px) {/*ipad pro*/
+  #jugarrr{
+    width: 100px;
+    height: 100px;
+  }
+  #campomin{
+    font-size: 30px;
+    color: red;
+  }
+  #instrucciones{
+    font-size: 30px;
+  }
+  #instrucciones{
+    font-size: 30px;
+  }
+  #acercaDe{
+    font-size: 30px;
+  }
+  #boton_nuevo_juego{
+    font-size: 30px;
+  }
   
- 
+  .container {
+    padding-left: 130px;
+    margin-top: 40x;
+  }
+  #tableroo div {
+    height: 100px;
+  }
+  #nivelasd {
+    color: rgb(65, 141, 65);
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  #cantidad_vidas {
+    color: rgb(247, 83, 7);
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  #vidas {
+    color: rgb(65, 141, 65);
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  #mapa2 {
+    color: rgb(65, 141, 65);
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  #tmr {
+    color: rgb(65, 141, 65);
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  #resultado {
+    color: rgb(247, 83, 7);
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  #mapa {
+    color: rgb(247, 83, 7);
+    font-size: 35px;
+    font-weight: bold;
+  }
+  #nivel {
+    color: rgb(247, 83, 7);
+    font-size: 35px;
+    font-weight: bold;
+  }
   
+}
+
+#botonjugar {
+  display: block;
+  margin: auto;
+}
+#sobrevive {
+  text-align: center;
+}

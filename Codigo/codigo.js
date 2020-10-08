@@ -222,6 +222,7 @@ var arriba = function () {
   } else {
     Estado_botones();
   }
+  document.getElementById("boton_nuevo_juego").innerHTML="Nuevo Juego";
   document.addEventListener("keydown",tecla_presionada);
 
 
@@ -242,6 +243,7 @@ var abajo = function () {
   } else {
     Estado_botones();
   }
+  document.getElementById("boton_nuevo_juego").innerHTML="Nuevo Juego";
   document.addEventListener("keydown",tecla_presionada);
 
 };
@@ -260,6 +262,7 @@ var izquierda = function () {
   } else {
     Estado_botones();
   }
+  document.getElementById("boton_nuevo_juego").innerHTML="Nuevo Juego";
   document.addEventListener("keydown",tecla_presionada);
 
 };
@@ -279,6 +282,7 @@ var derecha = function () {
   } else {
     Estado_botones();
   }
+  document.getElementById("boton_nuevo_juego").innerHTML="Nuevo Juego";
   document.addEventListener("keydown",tecla_presionada);
 
 };
@@ -370,23 +374,30 @@ var pintar_grafico = function (matrix) {
     for (var j = 0; j < matrix[i].length; j++) {
       if (matrix[j][i] == "+") {
         document.getElementById("cuadro" + j + "_" + i).innerHTML =
-          '<img src="../Imagenes/robop.png"  ; />';
+          '<img class="robott" src="../Imagenes/robop.png"  ; />';
       }
     }
   }
-  /*
+  
   for (var i = 0; i < 5; i++) {
     for (var j = 0; j < 5; j++) {
       if (matrix[j][i] == "0") {
-        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img width="50px" height="50px" src="../Imagenes/escanor.png" />';
+        document.getElementById("cuadro" + j + "_" + i).innerHTML =" ";
       }
     }
-  }*/
+  }
   for (var i = 0; i < matrix.length; i++) {
     for (var j = 0; j < matrix[i].length; j++) {
       if (matrix[j][i] == "$") {
         document.getElementById("cuadro" + j + "_" + i).innerHTML =
           '<img class="imagenes_grilla" src="../Imagenes/logojuego.png" />';
+      }
+    }
+  }
+  for (var i = 0; i < matrix.length; i++) {
+    for (var j = 0; j < matrix[i].length; j++) {
+      if (matrix[j][i] == "#") {
+        document.getElementById("cuadro" + j + "_" + i).innerHTML = '<img id="soldado" src="../Imagenes/muerto.png" />';
       }
     }
   }

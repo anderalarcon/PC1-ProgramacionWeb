@@ -664,6 +664,17 @@ tr:nth-child(even) td:nth-child(even) {
     font-size: 15px;
 
   }
+
+  #instrucciones{
+    font-size: 15px;
+  }
+  #acercaDe{
+    font-size: 15px;
+
+  }
+  #boton_nuevo_juego{
+    font-size: 15px;
+  }
 }
 
 #botonjugar {

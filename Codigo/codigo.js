@@ -1,4 +1,4 @@
-var contador = 0;
+var contador = 0;//perder
 var contadorVidas = 4;
 var nivelAPasar = 1;
 var estado_botones = 1; //1 es presente y 0 es oculto
@@ -108,9 +108,9 @@ function obtenerResultado(mapaActual, mapaPrevio) {
     var Mapa = document.getElementById("mapa");
     nivelActual.innerHTML = nivelAPasar;
     Mapa.innerHTML = nivelAPasar;
-    main();
+    main();//reiniciamos
     contadorGanadas = contadorGanadas + 1;
-    if (contadorGanadas == 1) {
+    if (contadorGanadas == 1) {//mapa
       document.getElementById("mapa").innerHTML="2do";
       return "Next Lvl!";
   }
@@ -120,7 +120,7 @@ function obtenerResultado(mapaActual, mapaPrevio) {
     return "Next Lvl!";
   }
   
-  else if(contadorGanadas==3){
+  else if(contadorGanadas==3){//a la tercer ganada gana
     document.getElementById("mapa").innerHTML="FIN";
     estado_botones = 0;
     Estado_botones();
@@ -133,8 +133,8 @@ function obtenerResultado(mapaActual, mapaPrevio) {
   minasActual = (mapaActual.match(/\$/g) || []).length;
   minasPrevio = (mapaPrevio.match(/\$/g) || []).length;
   if (minasActual > minasPrevio) {
-    contador++;
-    contadorVidas--;
+    contador++;//para imagen al perder
+    contadorVidas--;//componente vidas
     var a = document.getElementById("cantidad_vidas");
     a.innerHTML = contadorVidas;
     if (contador > 3) {
@@ -204,13 +204,11 @@ var tecla_presionada = function (evt) {
 };
 
 var arriba = function () {
-  mapaActual = mover("up", mapaActual, mapaMinas); //usar estas funciones
-  console.log(mapaActual);
+  mapaActual = mover("up", mapaActual, mapaMinas); 
   matrix = obtenerMatrixDeMapa(mapaActual);
   pintar_grafico(matrix);
-  resultado.innerHTML = 3;
-  estado_botones = 1;
-  resultado.innerHTML = obtenerResultado(mapaActual, mapaPrevio);
+  estado_botones = 1;//cambiamos el estado
+  resultado.innerHTML = obtenerResultado(mapaActual, mapaPrevio);//componen resultado
 
   mapaPrevio = mapaActual;
   if (contador > 3) {
@@ -224,7 +222,7 @@ var arriba = function () {
 };
 
 var abajo = function () {
-  mapaActual = mover("down", mapaActual, mapaMinas); //usar estas funciones
+  mapaActual = mover("down", mapaActual, mapaMinas); 
   console.log(mapaActual);
   matrix = obtenerMatrixDeMapa(mapaActual);
   pintar_grafico(matrix);
@@ -283,7 +281,7 @@ var derecha = function () {
 };
 
 var botonArribaPressed = function () {
-  mostrarReloj();
+  mostrarReloj();//lo llamamos al apretar tecla
   estado_botones = 0;
   Estado_botones();
   matriz = obtenerMatrixDeMapa(mapaActual);
@@ -323,7 +321,6 @@ var botonAbajoPressed = function () {
 
 var botonIzquierdaPressed = function () {
   mostrarReloj();
-
   estado_botones = 0;
   Estado_botones();
   matriz = obtenerMatrixDeMapa(mapaActual);
@@ -359,13 +356,13 @@ var botonDerechaPressed = function () {
 
 };
 
-var pintar_grafico = function (matrix) {
+var pintar_grafico = function (matrix) {//para pintar logica
   for (var i = 0; i < matrix.length; i++) {
     for (var j = 0; j < matrix[i].length; j++) {
       document.getElementById("cuadro" + j + "_" + i).innerHTML = matrix[j][i];
     }
   }
-  for (var i = 0; i < matrix.length; i++) {
+  for (var i = 0; i < matrix.length; i++) {//pintamos robot
     for (var j = 0; j < matrix[i].length; j++) {
       if (matrix[j][i] == "+") {
         document.getElementById("cuadro" + j + "_" + i).innerHTML =
@@ -398,13 +395,13 @@ var pintar_grafico = function (matrix) {
   }
 };
 
-var ocultarReloj = function () {
+/* var ocultarReloj = function () {
   var a = document.getElementById("reloj");
   a.style.display = "none";
-};
+}; */
 
 var mostrarReloj = function () {
-  var qwe = document.createElement("lottie-player");
+  var qwe = document.createElement("lottie-player");//creamos
   qwe.setAttribute("id", "reloj");
   qwe.setAttribute(
     "src",
@@ -415,11 +412,11 @@ var mostrarReloj = function () {
   qwe.setAttribute("style", "width:100px");
   qwe.setAttribute("style", "height:100px");
 
-  var asd = document.getElementById("resultado");
+  var asd = document.getElementById("resultado");//menor a mayor 
   asd.appendChild(qwe);
   var princi = document.getElementById("tmr");
   princi.appendChild(asd);
-  document.getElementById("reloj").style.display = "block";
+  document.getElementById("reloj").style.display = "block";//cada vez q aprieto lo muestra
 };
 
 var finDelJuego = function () {
@@ -442,6 +439,7 @@ var main = function () {
     $("#qwe").modal(); //Muestra el modal al cargar la pagina
    
   });
+
   mapaActual = mapaInicial;
   console.log(mapaActual);
   mapaPrevio = mapaActual;
@@ -458,7 +456,7 @@ var main = function () {
   document.addEventListener("keydown", tecla_presionada);
   pintar_grafico(matrixActual);
 
-  document.onkeydown = function (e) {
+  document.onkeydown = function (e) {//bloquear letras teclado 
     return false;
   };
 
